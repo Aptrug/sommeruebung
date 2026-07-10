@@ -11,40 +11,54 @@
 /* ************************************************************************** */
 void	ft_putchar(char c);
 
-void	print_row(int x, char left, char fill, char right)
+void	print_border_line(int width)
 {
-	int	i;
+	int	column;
 
-	ft_putchar(left);
-	i = 1;
-	while (i < x - 1)
+	column = 0;
+	while (column < width)
 	{
-		ft_putchar(fill);
-		++i;
+		if (column == 0)
+			ft_putchar('A');
+		else if (column == width - 1)
+			ft_putchar('C');
+		else
+			ft_putchar('B');
+		column = column + 1;
 	}
-	if (x > 1)
-		ft_putchar(right);
 	ft_putchar('\n');
 }
 
-void	rush(int x, int y)
+void	print_middle_line(int width)
 {
-	int	j;
+	int	column;
 
-	if (x <= 0 || y <= 0)
-		return ;
-	j = 0;
-	while (j < y)
+	column = 0;
+	while (column < width)
 	{
-		if (x == 1 && y > 1 && j == y - 1)
-			print_row(x, 'A', 'B', 'A');
-		else if (j == 0)
-			print_row(x, 'A', 'B', 'C');
-		else if (j == y - 1)
-			print_row(x, 'A', 'B', 'C');
+		if (column == 0 || column == width - 1)
+			ft_putchar('B');
 		else
-			print_row(x, 'B', ' ', 'B');
-		++j;
+			ft_putchar(' ');
+		column = column + 1;
+	}
+	ft_putchar('\n');
+}
+
+void	rush(int width, int height)
+{
+	int	row;
+
+	if (width <= 0 || height <= 0)
+		return ;
+	row = 0;
+	while (row < height)
+	{
+		if (row == 0 || row == height - 1)
+			print_border_line(width);
+		else
+			print_middle_line(width);
+		row = row + 1;
 	}
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
