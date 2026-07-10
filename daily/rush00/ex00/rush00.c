@@ -16,7 +16,7 @@ void	print_border_line(int width)
 	int	column;
 
 	column = 1;
-	while (column < width)
+	while (column <= width)
 	{
 		if (column == 1 || column == width)
 			ft_putchar('o');
