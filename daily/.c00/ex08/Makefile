@@ -24,11 +24,11 @@ test:
 	cat > $(BUILD_DIR)/oracle.awk << 'EOF'
 	BEGIN {
 		out = ""
-		for (i = 0; i < n; i = i + 1)
+		for (i = 0; i < n; ++i)
 			idx[i] = i
 		while (1) {
 			comb = ""
-			for (i = 0; i < n; i = i + 1)
+			for (i = 0; i < n; ++i)
 				comb = comb idx[i]
 			if (out == "")
 				out = comb
@@ -39,8 +39,8 @@ test:
 				i = i - 1
 			if (i < 0)
 				break
-			idx[i] = idx[i] + 1
-			for (j = i + 1; j < n; j = j + 1)
+			++idx[i]
+			for (j = i + 1; j < n; ++j)
 				idx[j] = idx[j - 1] + 1
 		}
 		printf "%s", out
