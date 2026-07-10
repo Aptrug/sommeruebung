@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 void	ft_putchar(char c);
 
-static void	print_row(int x, char left, char fill, char right)
+void	print_row(int x, char left, char fill, char right)
 {
 	int	i;
 
