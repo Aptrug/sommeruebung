@@ -1,6 +1,5 @@
 # Notes on this pass
 
-
 This file is not part of the exam. It's a record of the one place where I
 changed *content*, not just formatting, while making these SUBJECT.txt files
 consistent with c02's style. Delete this file before handing the directory
