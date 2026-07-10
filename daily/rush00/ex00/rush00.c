@@ -32,7 +32,7 @@ void	print_middle_line(int width)
 	int	column;
 
 	column = 1;
-	while (column < width)
+	while (column <= width)
 	{
 		if (column == 1 || column == width)
 			ft_putchar('|');
@@ -50,7 +50,7 @@ void	rush(int width, int height)
 	if (width <= 0 || height <= 0)
 		return ;
 	row = 1;
-	while (row < height)
+	while (row <= height)
 	{
 		if (row == 1 || row == height)
 			print_border_line(width);
