@@ -20,7 +20,10 @@ void	print_one_line(int width, int is_top_or_bottom)
 	{
 		if (column == 0 || column == width - 1)
 		{
-			ft_putchar('o');
+			if (is_top_or_bottom == 1)
+				ft_putchar('o');
+			else
+				ft_putchar('|');
 		}
 		else if (is_top_or_bottom == 1)
 		{
