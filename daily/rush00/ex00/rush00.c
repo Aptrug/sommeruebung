@@ -11,24 +11,31 @@
 /* ************************************************************************** */
 void	ft_putchar(char c);
 
-void	print_one_line(int width, int row, int height)
+void	print_border_line(int width)
 {
 	int	column;
-	int	is_top_or_bottom;
 
-	is_top_or_bottom = (row == 0 || row == height - 1);
 	column = 0;
 	while (column < width)
 	{
 		if (column == 0 || column == width - 1)
-		{
-			if (is_top_or_bottom)
-				ft_putchar('o');
-			else
-				ft_putchar('|');
-		}
-		else if (is_top_or_bottom)
+			ft_putchar('o');
+		else
 			ft_putchar('-');
+		column = column + 1;
+	}
+	ft_putchar('\n');
+}
+
+void	print_middle_line(int width)
+{
+	int	column;
+
+	column = 0;
+	while (column < width)
+	{
+		if (column == 0 || column == width - 1)
+			ft_putchar('|');
 		else
 			ft_putchar(' ');
 		column = column + 1;
@@ -45,7 +52,10 @@ void	rush(int width, int height)
 	row = 0;
 	while (row < height)
 	{
-		print_one_line(width, row, height);
+		if (row == 0 || row == height - 1)
+			print_border_line(width);
+		else
+			print_middle_line(width);
 		row = row + 1;
 	}
 }
