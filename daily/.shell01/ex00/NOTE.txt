@@ -1,9 +1,0 @@
-ex00 (Exam) has no turn-in files and no solve.sh/test.sh.
-
-The subject only asks you to:
-  1. sign up for Friday's exam in the agenda
-  2. register for the Exam00 project
-  3. double-check both registrations (the event AND the project)
-
-Nothing here can be scripted or verified from a sandbox - it's an intranet
-registration step, not a shell exercise. Just do it for real on the intranet.
