@@ -1,0 +1,15 @@
+ex03 (SSH me!) intentionally has no test.sh.
+
+This exercise can't be mechanically checked from a script:
+- it requires generating a real SSH keypair (ssh-keygen)
+- the deliverable (id_rsa_pub) is your public key committed to the repo
+- the actual grading condition is whether your key works against the
+  1337/42 intranet + git server, which no local sandbox can simulate
+
+Manual check instead:
+  1. Confirm id_rsa_pub is your PUBLIC key, not your private key
+     (public keys start with "ssh-rsa AAAA..." or "ssh-ed25519 AAAA...";
+     never commit the private key - it has no "_pub" suffix and usually
+     starts with "-----BEGIN OPENSSH PRIVATE KEY-----")
+  2. Confirm the same public key is uploaded to the intranet
+  3. Confirm you can actually push to the school's git server using it

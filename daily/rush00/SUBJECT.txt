@@ -1,0 +1,41 @@
+C Piscine - Rush 00
+Instructions (apply to every exercise in this module)
+
+* The group WILL be registered to defense automatically.
+* Do not cancel it, you won't get a second one.
+* Any question concerning the subject would complicate the subject.
+* You have to follow the submission procedures for all your exercises.
+* This subject could change up to an hour before submission.
+* The program must compile with the following flags: -Wall -Wextra -Werror;
+  and uses cc.
+* If your program doesn't compile, you'll get 0.
+* Your program must be written in accordance with the Norm. If you have
+  bonus files/functions, they are included in the norm check and you will
+  receive a 0 if there is a norm error inside.
+* You will have to handle errors coherently. Feel free to either print an
+  error message, or simply return control to the user.
+* Rushes exercises have to be carried out by group of 2, 3 or 4.
+* Each member of your group must be fully aware of the works of the
+  project. During the defense, you'll be asked questions and the final
+  grade will be based on the worst explanations.
+* Make sure the subject that was originally assigned to your group works
+  perfectly before considering bonuses: if a bonus subject works, but the
+  original one fails the tests, you'll get 0.
+
+Do not forget to add the standard 42 header in each of your .c/.h files. The
+norminette check its existence anyway!
+
+Norminette must be launched with the -R CheckForbiddenSourceHeader flag.
+Moulinette will use it too.
+
+Foreword
+
+This subject is the Rush00 of the C Piscine. The exercise assigned to this
+repository is ex00 (plain rectangle) and is mandatory. Rush01 through
+Rush04 are variations on the same rush() function (different border
+characters) and are turned in as bonus, per the instructions above: make
+sure ex00 works perfectly before relying on the bonus exercises, since a
+failing mandatory part means a grade of 0 regardless of the bonuses.
+
+(See exXX/SUBJECT.txt in each exercise directory for the exercise-specific
+instructions.)

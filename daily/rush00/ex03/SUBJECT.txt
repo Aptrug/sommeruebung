@@ -1,0 +1,45 @@
+Exercice 03: rush03
+
+Turn-in directory : ex03/
+Files to turn in  : main.c, ft_putchar.c, rush03.c
+Allowed functions : write
+
+* Files to submit: main.c, ft_putchar.c and rush03.c. Those three files will
+  be compiled together.
+* ft_putchar.c should include the function ft_putchar.
+* You must write the function rush taking two variables of type int as
+  arguments, named respectively x and y.
+* Your function rush should display (on-screen) a rectangle of x characters
+  for width, and y characters for length.
+* Your function should never crash or loop indefinitely.
+
+* rush(5, 3) should display:
+
+    ABBBC
+    B   B
+    ABBBC
+
+* rush(5, 1) should display:
+
+    ABBBC
+
+* rush(1, 1) should display:
+
+    A
+
+* rush(1, 5) should display:
+
+    A
+    B
+    B
+    B
+    A
+
+* rush(4, 4) should display:
+
+    ABBC
+    B  B
+    B  B
+    ABBC
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)

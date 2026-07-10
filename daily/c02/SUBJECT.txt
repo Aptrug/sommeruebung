@@ -1,0 +1,82 @@
+C Piscine - C 02
+Instructions (apply to every exercise in this module)
+
+* Only the official subject document serves as reference: do not trust
+  rumors.
+* Watch out! The subject document could potentially change up before
+  submission.
+* Make sure you have the appropriate permissions on your files and
+  directories.
+* You have to follow the submission procedures for all your exercises.
+* Your exercises will be checked and graded by your fellow classmates.
+* On top of that, your exercises will be checked and graded by a program
+  called Moulinette.
+* Moulinette is very meticulous and strict in its evaluation of your work. It
+  is entirely automated and there is no way to negotiate with it. So if you
+  want to avoid bad surprises, be as thorough as possible.
+* Moulinette is not very open-minded. It won't try and understand your code
+  if it doesn't respect the Norm. Moulinette relies on a program called
+  norminette to check if your files respect the norm. TL;DR: it would be
+  idiotic to submit a piece of work that doesn't pass norminette's check.
+* These exercises are carefully laid out by order of difficulty - from
+  easiest to hardest. We will not take into account a successfully completed
+  harder exercise if an easier one is not perfectly functional.
+* Using a forbidden function is considered cheating. Cheaters get -42, and
+  this grade is non-negotiable.
+* You'll only have to submit a main() function if we ask for a program.
+* Moulinette compiles with these flags: -Wall -Wextra -Werror, and uses cc.
+* If your program doesn't compile, you'll get 0.
+* You cannot leave any additional file in your directory than those
+  specified in the subject.
+* Got a question? Ask your peer on the right. Otherwise, try your peer on
+  the left.
+* Your reference guide is called Google / man / the Internet / ....
+* Check out the "C Piscine" part of the forum on the intranet, or the slack
+  Piscine.
+* Examine the examples thoroughly. They could very well call for details
+  that are not explicitly mentioned in the subject...
+* By Odin, by Thor! Use your brain!!!
+
+Do not forget to add the standard 42 header in each of your .c/.h files. The
+norminette check its existence anyway!
+
+Norminette must be launched with the -R CheckForbiddenSourceHeader flag.
+Moulinette will use it too.
+
+Foreword
+
+- I mean, why not just use Vim over Emacs? (CHUCKLES)
+- I do use Vim over Emac.
+- Oh, God, help us! Okay, uh you know what? I just don't think this is
+  going to work. I'm so sorry. Uh, I mean like, what, we're going to bring
+  kids into this world with that over their heads? That's not really fair
+  to them, don't you think?
+- Kids? We haven't even slept together.
+- And guess what, it's never going to happen now, because there is no
+  way I'm going to be with someone who uses spaces over tabs.
+- Richard! (PRESS SPACE BAR MANY TIMES)
+- Wow. Okay. Goodbye.
+- One tab saves you eight spaces! - (DOOR SLAMS) - (BANGING)
+. . .
+(RICHARD MOANS)
+- Oh, my God! Richard, what happened?
+- I just tried to go down the stairs eight steps at a time. I'm okay, though.
+- See you around, Richard.
+- Just making a point.
+
+Hopefully, you are not forced to use emacs and your space bar to complete
+the following exercices.
+
+Today's threshold
+
+The validation threshold for this project is 50%. It is up to you to
+determine which exercise allows you to reach this threshold, and if you want
+to complete more exercises.
+
+Submission and peer-evaluation
+
+Turn in your assignment in your Git repository as usual. Only the work
+inside your repository will be evaluated during the defense. Don't hesitate
+to double check the names of your files to ensure they are correct.
+
+You need to return only the files requested by the subject of this project.

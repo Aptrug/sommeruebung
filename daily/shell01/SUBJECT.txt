@@ -1,0 +1,47 @@
+C Piscine - Shell 01
+Instructions (apply to every exercise in this module)
+
+* Only the official subject document serves as reference; do not trust rumors.
+* Watch out! The subject document could potentially change up before
+  submission.
+* These exercises are carefully laid out by order of difficulty - from easiest
+  to hardest. A successfully completed harder exercise will not be taken into
+  account if an easier one is not perfectly functional.
+* Make sure you have the appropriate permissions on your files and
+  directories.
+* You have to follow the submission procedures for every exercise.
+* Your exercises will be checked and graded by your fellow classmates.
+* On top of that, your exercises will be checked and graded by a program
+  called Moulinette.
+* Moulinette is very meticulous and strict in its evaluation of your work. It
+  is entirely automated and there is no way to negotiate with it. So if you
+  want to avoid bad surprises, be as thorough as possible.
+* Exercises in Shell must be executable with /bin/sh.
+* You cannot leave any additional file in your directory than those specified
+  in the subject.
+* Got a question? Ask your peer on the right. Otherwise, try your peer on the
+  left.
+* Your reference guide is called Google / man / the Internet / ....
+* Check out the "C Piscine" part of the forum on the intranet.
+* Examine the examples thoroughly. They could very well call for details that
+  are not explicitly mentioned in the subject...
+
+Foreword
+
+Here's what Wikipedia has to say about otters: the European otter (Lutra
+lutra) is a European and Asian member of the Lutrinae or otter subfamily,
+typical of freshwater otters. Brown above and cream below, these long,
+slender creatures are well-equipped for their aquatic habits. Normally 57 to
+95 cm long, not counting a 35-45 cm tail, with an average body weight of 7 to
+12 kg. It is the most widely distributed otter species, found across Europe
+and parts of Asia and Africa.
+
+Otters are cute.
+
+Submission and peer-evaluation
+
+Turn in your assignment in your Git repository as usual. Only the work inside
+your repository will be evaluated during the defense. Don't hesitate to
+double check the names of your files to ensure they are correct.
+
+You need to return only the files requested by the subject of this project.

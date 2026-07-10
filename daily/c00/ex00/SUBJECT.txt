@@ -1,0 +1,19 @@
+Exercice 00: ft_putchar
+
+Turn-in directory : ex00/
+Files to turn in  : ft_putchar.c
+Allowed functions : write
+
+* Write a function that displays the character passed as a parameter.
+* It will be prototyped as follows :
+
+    void ft_putchar(char c);
+
+To display the character, you must use the write function as follows.
+
+    write(1, &c, 1);
+
+The first retry delay is short, do not hesitate to trigger an intermediate
+evaluation to measure your progress.
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)

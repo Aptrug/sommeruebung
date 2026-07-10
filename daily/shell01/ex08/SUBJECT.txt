@@ -1,0 +1,31 @@
+Exercise 08: add_chelou.sh
+
+Turn-in directory : ex08/
+Files to turn in  : add_chelou.sh
+Allowed functions : None
+
+* Write a command line that takes numbers from variables FT_NBR1, in
+  '\"?! base, and FT_NBR2, in mrdoc base, and displays the sum of both in
+  gtaio luSnemf base.
+
+    - Example 1:
+
+        FT_NBR1=\'?"\"'\
+        FT_NBR2=rcrdmddd
+
+    - The sum is :
+
+        Salut
+
+    - Example 2 :
+
+        FT_NBR1=\"\"!\"\"!\"\"!\"\"!\"\"!\"\"
+        FT_NBR2=dcrcmcmooododmrrrmorcmcrmomo
+
+    - The sum is :
+
+        Segmentation fault
+
+Do not hesitate to pickup randomly someone in your cluster to ask a question.
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)

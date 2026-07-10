@@ -1,0 +1,61 @@
+Exercice 00: rush00
+
+Turn-in directory : ex00/
+Files to turn in  : main.c, ft_putchar.c, rush00.c
+Allowed functions : write
+
+* Files to submit: main.c, ft_putchar.c and rush00.c. Those three files will
+  be compiled together.
+* ft_putchar.c should include the function ft_putchar.
+* Example of main.c:
+
+    int main()
+    {
+        rush(5, 5);
+        return (0);
+    }
+
+* You must write the function rush taking two variables of type int as
+  arguments, named respectively x and y.
+* Your function rush should display (on-screen) a rectangle of x characters
+  for width, and y characters for length.
+* Your function should never crash or loop indefinitely.
+* Your main will be modified during defense, to check if you've handled
+  everything you're supposed to. Here's an example of test we'll perform:
+
+    int main()
+    {
+        rush(123, 42);
+        return (0);
+    }
+
+* rush(5, 3) should display:
+
+    o---o
+    |   |
+    o---o
+
+* rush(5, 1) should display:
+
+    o---o
+
+* rush(1, 1) should display:
+
+    o
+
+* rush(1, 5) should display:
+
+    o
+    |
+    |
+    |
+    o
+
+* rush(4, 4) should display:
+
+    o--o
+    |  |
+    |  |
+    o--o
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)

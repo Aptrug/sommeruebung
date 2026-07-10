@@ -1,0 +1,38 @@
+pool/
+├── Makefile                      (root: traversal + forwarding only)
+├── common/
+│   └── flags.mk                   (shared CFLAGS/CC/common recipe fragments — included by every leaf Makefile)
+├── daily/
+│   ├── c00/
+│   │   ├── ex00/
+│   │   │   ├── Makefile           (build + inline test targets)
+│   │   │   ├── subject.pdf
+│   │   │   └── ft_putchar.c
+│   │   ├── ex01/ ...
+│   │   └── Makefile               (module-level: forwards to ex00..ex08)
+│   ├── c01/ ... c13/
+│   ├── shell00/
+│   │   ├── ex00/
+│   │   │   ├── Makefile           (test-only target, inline checks, no build target)
+│   │   │   └── solution.sh
+│   │   └── Makefile
+│   └── shell01/ ...
+├── rush/
+│   ├── rush00/
+│   │   ├── Makefile               (real project Makefile; inline smoke-tests still fine here)
+│   │   ├── srcs/ includes/
+│   ├── rush01/ ...
+│   └── rush02/ ...
+├── bsq/
+│   ├── Makefile
+│   └── srcs/ includes/            (BSQ likely still wants real map files as input — those are legitimate non-test artifacts, not test scaffolding, so keep a maps/ dir if needed)
+└── exam/
+    ├── level00/
+    │   ├── rot_13/
+    │   │   ├── Makefile           (build + inline test targets)
+    │   │   ├── subject.txt
+    │   │   └── solution.c
+    │   ├── wdmatch/ ...
+    │   └── Makefile
+    ├── level01/ ... level05/
+    └── examfinal/
