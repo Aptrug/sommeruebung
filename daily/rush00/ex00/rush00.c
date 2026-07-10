@@ -11,11 +11,6 @@
 /* ************************************************************************** */
 void	ft_putchar(char c);
 
-/*
-** Prints one line of the rectangle.
-** is_top_or_bottom tells us whether this is an "o---o" line
-** or a "|   |" line.
-*/
 void	print_one_line(int width, int is_top_or_bottom)
 {
 	int	column;
@@ -25,17 +20,14 @@ void	print_one_line(int width, int is_top_or_bottom)
 	{
 		if (column == 0 || column == width - 1)
 		{
-			/* first or last character: always a corner */
 			ft_putchar('o');
 		}
 		else if (is_top_or_bottom == 1)
 		{
-			/* middle of a top/bottom row: dash */
 			ft_putchar('-');
 		}
 		else
 		{
-			/* middle of a normal row: space */
 			ft_putchar(' ');
 		}
 		column = column + 1;
@@ -43,9 +35,6 @@ void	print_one_line(int width, int is_top_or_bottom)
 	ft_putchar('\n');
 }
 
-/*
-** Draws a rectangle: width characters wide, height lines tall.
-*/
 void	rush(int width, int height)
 {
 	int	row;
