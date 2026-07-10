@@ -15,16 +15,16 @@ void	print_border_line(int width)
 {
 	int	column;
 
-	column = 0;
-	while (column < width)
+	column = 1;
+	while (column <= width)
 	{
-		if (column == 0)
+		if (column == 1)
 			ft_putchar('A');
-		else if (column == width - 1)
+		else if (column == width)
 			ft_putchar('C');
 		else
 			ft_putchar('B');
-		column = column + 1;
+		++column;
 	}
 	ft_putchar('\n');
 }
@@ -33,14 +33,14 @@ void	print_middle_line(int width)
 {
 	int	column;
 
-	column = 0;
-	while (column < width)
+	column = 1;
+	while (column <= width)
 	{
-		if (column == 0 || column == width - 1)
+		if (column == 1 || column == width)
 			ft_putchar('B');
 		else
 			ft_putchar(' ');
-		column = column + 1;
+		++column;
 	}
 	ft_putchar('\n');
 }
@@ -51,14 +51,14 @@ void	rush(int width, int height)
 
 	if (width <= 0 || height <= 0)
 		return ;
-	row = 0;
-	while (row < height)
+	row = 1;
+	while (row <= height)
 	{
-		if (row == 0 || row == height - 1)
+		if (row == 1 || row == height)
 			print_border_line(width);
 		else
 			print_middle_line(width);
-		row = row + 1;
+		++row;
 	}
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
