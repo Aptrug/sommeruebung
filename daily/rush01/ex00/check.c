@@ -9,6 +9,7 @@
 /*   Updated: 2026/07/11 09:00:00 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
+
 int	count_visible(int a, int b, int c, int d);
 
 int	check_row(int grid[4][4], int row, int left, int right)

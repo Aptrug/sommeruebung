@@ -9,8 +9,8 @@
 /*   Updated: 2026/07/11 09:00:00 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
-int	parse_clues(char *s, int *clues);
-int	solve_cell(int grid[4][4], int *clues, int row, int col);
+int		parse_clues(char *s, int *clues);
+int		solve_cell(int grid[4][4], int *clues, int row, int col);
 void	print_grid(int grid[4][4]);
 void	ft_putstr(char *s);
 
@@ -35,7 +35,7 @@ void	init_grid(int grid[4][4])
 void	rush(char *clues_str)
 {
 	int	clues[16];
-	int grid[4][4];
+	int	grid[4][4];
 
 	if (!parse_clues(clues_str, clues))
 	{
