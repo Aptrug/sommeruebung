@@ -1,0 +1,5 @@
+I'm going to study at 1337 in Morocco, but thing is, schools computers are first come first serve, so I'm guaranteed to have same computer everyday, but I'd like a way to save brave browser sessions and different brave profiles
+I don't know how to handle it, I'm even debating whether to switch for firefox for this
+I don't have USBs, but I have my android phone, I'm thinking of taking brave/firefox ~/.config/$browser directory and copying it from phone to pc by cable everytime
+is it valid strategy? will browser manlfunction? which is better and more reliable for this, brave or firefox?
+PS it's all linux, from linux to linux

@@ -1,0 +1,12 @@
+I'm trying to solve 1337/42 exercises (preparing for piscine)
+right now, I'm preparing for exams
+
+I want you to complete the entire exams directory for me, make it consistent with c02 directory, as if written by same person
+
+currently, the exams directory only contains SUBJECT.txt and skeleton .c/.h files
+
+Only act on level1, ignore the rest
+
+give me level1 directory as a tar file once you finish it
+
+PS Make sure all tests pass and leave nothing up to guess/luck/faith

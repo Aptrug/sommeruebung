@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   lcm.c                                                                    */
+/*                                                                            */
+/*   By: ysabraou <ysabraou@student.1337.ma>                                  */
+/*                                                                            */
+/*   Created: 2026/07/11 14:31:37 by ysabraou                                 */
+/*   Updated: 2026/07/11 14:31:37 by ysabraou                                 */
+/*                                                                            */
+/* ************************************************************************** */
+unsigned int	hcf(unsigned int a, unsigned int b)
+{
+	unsigned int	tmp;
+
+	while (b != 0)
+	{
+		tmp = b;
+		b = a % b;
+		a = tmp;
+	}
+	return (a);
+}
+
+unsigned int	lcm(unsigned int a, unsigned int b)
+{
+	if (a == 0 || b == 0)
+		return (0);
+	return ((a * b) / hcf(a, b));
+}
+/* vim: set noet ts=4 sw=4 tw=80 : */

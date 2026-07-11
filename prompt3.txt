@@ -1,0 +1,8 @@
+I'm trying to solve 1337/42 exercises (preparing for pool)
+right now, I solved c00 and c01 and I'm satisfied with them
+I want you to complete c02 directory for me, make it consistent with c01 directory, as if written by same person
+
+give me c02 directory as a tar file once you finish it
+NB:
+* Don't bother with adding the 42 headers block and vim modelines, I'll add them myself
+* Make sure all tests pass and leave nothing up to guess/luck/faith
