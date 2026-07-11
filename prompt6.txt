@@ -1,0 +1,10 @@
+I'm trying to solve 1337/42 exercises (preparing for piscine)
+right now, I'm preparing for rush
+
+as of now, I've finished first week rush (satisfied with it) and im preparing for second week rush
+
+I want you to complete second week rush directory for me, make it consistent with first week rush directory, as if written by same person
+
+give me .tar file for the second week rush once you finish it
+
+PS Make sure all tests pass and leave nothing up to guess/luck/faith

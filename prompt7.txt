@@ -1,0 +1,11 @@
+I'm trying to apply for 1337 Khouribga in Morocco in July 2026
+I've heard the pool isn't easy and it's better to come fully prepared
+I tried to solve all stuff that they throw at you in the pool period and leave no stone unturned
+basically I'm striving to 100% all of it and get the first rank, yes, first rank, not second or third rank
+so I downloaded multiple 1337 pool exercises github repos
+I'd like you to go through them and tell me whether I missed a repo or whether some of them are outdated in 2026
+and I'd like you to also point out which repo is most comprehensive and which repos are just noise or rebundant or even misleading
+repos_files.txt contains all files from all repos (.git directory is ommitted of course), be sure to read all of it, don't just skim through, you might miss something critical
+show me a comparative table after analyzing all repos (which one has more exams, etc)
+Just do the best possible analysis from filenames/structure alone
+PS I use Gentoo Linux, C and bash aren't foreign to me (I use DWM+openrc btw)
