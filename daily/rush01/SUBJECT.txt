@@ -1,0 +1,44 @@
+C Piscine - Rush 01
+Instructions (apply to every exercise in this module)
+
+* The group WILL be registered to defense automatically.
+* Do not cancel it, you won't get a second one.
+* Any question concerning the subject would complicate the subject.
+* You have to follow the submission procedures for all your exercises.
+* This subject could change up to an hour before submission.
+* The program must compile with the following flags: -Wall -Wextra -Werror;
+  and uses cc.
+* If your program doesn't compile, you'll get 0.
+* Your program must be written in accordance with the Norm. If you have
+  bonus files/functions, they are included in the norm check and you will
+  receive a 0 if there is a norm error inside.
+* You must do the project with the imposed team and show up at the defense
+  slot you've selected, with all of your teammates.
+* Your project must be done by the time you get to defense. The purpose of
+  defense is for you to present and explain any and all details of your
+  work.
+* Each member of your group must be fully aware of the works of the
+  project. During the defense, you'll be asked questions and the final
+  grade will be based on the worst explanations.
+* Gathering the group is your responsibility.
+* If you've really tried everything and one of your teammates remains
+  unreachable: do the project anyway, and we'll try and see what we can do
+  about it during defense.
+
+Do not forget to add the standard 42 header in each of your .c/.h files. The
+norminette check its existence anyway!
+
+Norminette must be launched with the -R CheckForbiddenSourceHeader flag.
+Moulinette will use it too.
+
+Foreword
+
+This subject is the Rush01 of the C Piscine. The exercise assigned to this
+repository is ex00 (skyscraper puzzle solver, 4x4 grid) and is mandatory.
+The subject allows other map sizes up to 9x9 as bonus, per the usual rule:
+make sure the mandatory 4x4 case works perfectly before relying on any
+bonus, since a failing mandatory part means a grade of 0 regardless of the
+bonuses. We stopped at 4x4 on purpose and did not attempt the bonus sizes.
+
+(See exXX/SUBJECT.txt in each exercise directory for the exercise-specific
+instructions.)

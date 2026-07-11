@@ -1,0 +1,50 @@
+Exercice 00: rush-01
+
+Turn-in directory : ex00/
+Files to turn in  : all necessary files
+Allowed functions : write, malloc, free
+
+* Your source code will be compiled as follows:
+    cc -Wall -Wextra -Werror -o rush-01 *.c
+* Your submission directory must have all files required to compile your
+  program.
+* Given a map of 4x4, place boxes of height 1 to 4 on each available square
+  in a way that every row and column sees the correct number of visible
+  boxes from each of the possible points of view (left/right for rows,
+  up/down for columns).
+* Ex: a box of height 3 will hide a box of height 1 standing behind it (from
+  that point of view), but not a box of height 4. A row of [3, 1, 4, 2] seen
+  from the left shows 2 boxes (3, then 4); seen from the right it shows 2
+  boxes as well (2, then 4).
+* Each of the views (2 per row and 2 per column) will have a given value.
+  Your program must place the boxes correctly, while making sure each row
+  and column only has one box of each size (i.e. each row/column is a
+  permutation of 1..4).
+* Your output will contain the first solution you encounter.
+* Here's how we'll launch your program:
+
+    ./rush-01 "col1up col2up col3up col4up col1down col2down col3down \
+    col4down row1left row2left row3left row4left row1right row2right \
+    row3right row4right"
+
+* "col1up" is the value for the left column's upper point of view. Each of
+  these represents a single character ranged between '1' and '4'.
+* This is the ONLY acceptable input for your program. Any other input must
+  be considered an error.
+* Example:
+
+    ./rush-01 "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
+
+  should display:
+
+    1 2 3 4
+    2 3 4 1
+    3 4 1 2
+    4 1 2 3
+
+* In case of error, or if you can't find any solution, display "Error"
+  followed by a line break.
+* The subject allows handling other map sizes up to 9x9 as bonus. We did
+  not attempt this: only the mandatory 4x4 case is implemented.
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)
