@@ -1,12 +1,10 @@
 I'm trying to solve 1337/42 exercises (preparing for piscine)
 right now, I'm preparing for exams
 
-as of now, I've finished level1, level2, level3 and I'm aiming for level4
+as of now, I've finished level1, level2, level3, level4 and I'm aiming for level5
 
-currently, the level4 directory only contains SUBJECT.txt and skeleton .c/.h files
+I want you to complete level5 directory for me, make it consistent with level4 directory, as if written by same person
 
-I want you to complete level4 directory for me, make it consistent with level1 directory, as if written by same person
-
-Act only on level4 directory and give me level4 directory as a tar file once you finish it
+give me level5 directory as a tar file once you finish it
 
 PS Make sure all tests pass and leave nothing up to guess/luck/faith
