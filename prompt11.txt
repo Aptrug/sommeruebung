@@ -1,5 +1,5 @@
 I'm trying to solve 42 schools exams (preparing for pool)
-Ifinished level4 myself and I'm proud/satisfied with it
+I finished level4 myself and I'm proud/satisfied with it
 i've tried to enumerate problems from easiest to hardest too
 except that i forgot to do this problem:
 """
