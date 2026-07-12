@@ -67,6 +67,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	unsigned char	*row;
 	unsigned int	i;
 	unsigned int	len;
+	unsigned int	remaining;
 
 	ptr = (unsigned char *)addr;
 	i = 0;
@@ -75,9 +76,11 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		row = ptr + i;
 		print_addr((unsigned long)row);
 		write(1, ": ", 2);
-		len = size - i;
-		if (len > 16)
+		remaining = size - i;
+		if (remaining > 16)
 			len = 16;
+		else
+			len = remaining;
 		print_hex_row(row, len);
 		write(1, " ", 1);
 		print_ascii_row(row, len);
