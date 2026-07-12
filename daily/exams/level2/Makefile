@@ -1,7 +1,7 @@
-EXDIRS	= 00_alpha_mirror 01_camel_to_snake 02_do_op 03_ft_atoi 04_ft_strcmp \
-	  05_ft_strcspn 06_ft_strdup 07_ft_strpbrk 08_ft_strrev 09_ft_strspn \
-	  10_is_power_of_2 11_max 12_print_bits 13_reverse_bits 14_swap_bits \
-	  15_inter 16_union 17_wdmatch
+EXDIRS	= 00_alpha_mirror 01_camel_to_snake 02_snake_to_camel 03_do_op \
+	  04_ft_atoi 05_ft_strcmp 06_ft_strcspn 07_ft_strdup 08_ft_strpbrk \
+	  09_ft_strrev 10_ft_strspn 11_is_power_of_2 12_max 13_print_bits \
+	  14_reverse_bits 15_swap_bits 16_inter 17_union 18_wdmatch
 
 .ONESHELL:
 
