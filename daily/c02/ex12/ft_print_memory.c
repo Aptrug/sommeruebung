@@ -75,9 +75,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		row = ptr + i;
 		print_addr((unsigned long)row);
 		write(1, ": ", 2);
-		len = size - i;
-		if (len > 16)
-			len = 16;
+		len = (size - i > 16) ? 16 : size - i;
 		print_hex_row(row, len);
 		write(1, " ", 1);
 		print_ascii_row(row, len);
