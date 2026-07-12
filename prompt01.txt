@@ -1,6 +1,6 @@
 I'm trying to solve 1337/42 exercises (preparing for pool) of C0X
 right now, I want want c03 (FYI I'm fully satisified with previous ones, C00, C01, etc)
-I want you to create c03 directory for me, make it consistent with c01 directory, as if written by same person
+I want you to create c03 directory for me, make it consistent with c02 directory, as if written by same person
 here's entire c03 instructions
 
 """
