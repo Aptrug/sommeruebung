@@ -4,7 +4,7 @@ I'd like you to complete level0, but make it consistent with level1, as if done
 by same person (me)
 
 make it consistent when it comes to .txt files, C files, Makefile files,
-files/directory naming, etc
+files/directory naming, easiest to hardest naming convention (00_, 01_, etc), etc
 
 give me .tar file for level0 rush once you finish it
 
