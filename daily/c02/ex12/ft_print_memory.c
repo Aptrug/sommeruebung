@@ -39,9 +39,9 @@ void	print_hex_row(unsigned char *line, unsigned int len)
 	{
 		write(1, &hex[line[i] / 16], 1);
 		write(1, &hex[line[i] % 16], 1);
-		if (i % 2 == 1 && i + 1 < len)
-			write(1, " ", 1);
 		++i;
+		if (i % 2 == 0 && i < len)
+			write(1, " ", 1);
 	}
 }
 
