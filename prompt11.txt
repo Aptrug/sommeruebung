@@ -1,5 +1,5 @@
 I'm trying to solve 42 schools exams (preparing for pool)
-I finished level3 myself and I'm proud/satisfied with it
+I finished level2 myself and I'm proud/satisfied with it
 i've tried to enumerate problems from easiest to hardest too
 except that I forgot to do this problem:
 """
@@ -31,4 +31,4 @@ $
 I'd like you to solve it please (and tell me what directory prefix to use for it)
 I'd like you to make it consistent with other solutions, as if written by same
 person (same Makefile/C/.txt style etc etc)
-give me .tar file for level3 after adding the missing problem/solution
+give me .tar file for level2 after adding the missing problem/solution
