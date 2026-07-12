@@ -1,11 +1,11 @@
 I'm trying to solve 42 schools exams (preparing for pool)
-I finished level01 myself and I'm proud of it
-I'd like you to complete level00, but make it consistent with level01, as if done
+I finished level1 myself and I'm proud of it
+I'd like you to complete level0, but make it consistent with level1, as if done
 by same person (me)
 
 make it consistent when it comes to .txt files, C files, Makefile files,
 files/directory naming, etc
 
-give me .tar file for level00 rush once you finish it
+give me .tar file for level0 rush once you finish it
 
 PS Make sure all tests pass and leave nothing up to guess/luck/faith
