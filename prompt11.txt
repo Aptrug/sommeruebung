@@ -1,8 +1,32 @@
 I'm trying to solve 42 schools exams (preparing for pool)
 I finished level3 myself and I'm proud/satisfied with it
 i've tried to enumerate problems from easiest to hardest too
-except that i forgot to do this problem:
+except that I forgot to do this problem:
 """
+Assignment name  : count_alpha
+Expected files   : count_alpha.c
+Allowed functions: write, printf
+--------------------------------------------------------------------------------
+
+Write a Count_alpha program that takes a chain and displays the number of occurrences
+of its alphabetical characters.The other characters are not counted.Order is the order of appearance in the chain.
+The display must be finished with a Newline.
+
+The format is in examples.
+
+If the number of arguments is not 1, just display a newline.
+
+Exemples :
+$> ./count_alpha abbcc
+1a, 2b, 2c
+$> ./count_alpha "abbcc"
+1a, 2b, 2c
+$> ./count_alpha "abbcc" "dddeef" | cat -e
+$
+$> ./count_alpha "My Hyze 47y 7." | cat -e
+1m, 3y, 1h, 1z, 1e$
+$> ./count_alpha "" | cat -e
+$
 """
 I'd like you to solve it please (and tell me what directory prefix to use for it)
 I'd like you to make it consistent with other solutions, as if written by same
