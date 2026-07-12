@@ -79,7 +79,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		print_hex_row(row, len);
 		write(1, " ", 1);
 		print_ascii_row(row, len);
-		i += len;
+		i += 16;
 	}
 	return (addr);
 }
