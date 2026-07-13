@@ -1,43 +1,43 @@
 #!/bin/sh
-python3 -c "
-import sys
+gawk -M '
+BEGIN {
+    # Define the base-5 and base-13 alphabets natively
+    # \x27 represents the single quote, \\ is backslash, \" is double quote
+    b5_1 = "\x27\\\"?!"
+    b5_2 = "mrdoc"
+    b13 = "gtaio luSnemf"
 
-# FT_NBR1 and FT_NBR2 are each written in their own base-5 alphabet:
-#   FT_NBR1 uses 5 symbols: apostrophe, backslash, dquote, ?, !  -> 0,1,2,3,4
-#   FT_NBR2 uses 5 symbols: m, r, d, o, c                        -> 0,1,2,3,4
-# Neither base is stated outright in the subject - it is inferred from
-# each alphabet having exactly 5 distinct symbols.
-digits_in = {chr(39): 0, chr(92): 1, chr(34): 2, '?': 3, '!': 4,
-	'm': 0, 'r': 1, 'd': 2, 'o': 3, 'c': 4}
+    # Pull variables directly from the environment to avoid shell injection
+    n1 = ENVIRON["FT_NBR1"]
+    n2 = ENVIRON["FT_NBR2"]
 
-def to_dec(s):
-	# Convert a string written in the base-5 alphabet above into a plain
-	# Python int. Python ints are arbitrary-precision by default, which
-	# matters here: these numbers can be dozens of digits long, far past
-	# what a native 64-bit int or double could hold exactly.
-	n = 0
-	for c in s:
-		n = n * 5 + digits_in[c]
-	return n
+    # Convert FT_NBR1 to decimal
+    sum1 = 0
+    for (i = 1; i <= length(n1); i++) {
+        sum1 = sum1 * 5 + (index(b5_1, substr(n1, i, 1)) - 1)
+    }
 
-# FT_NBR1/FT_NBR2 arrive as argv, never interpolated into this source
-# text - their alphabets contain shell- and Python-quoting characters
-# that would corrupt the script if spliced directly into it.
-a, b = sys.argv[1], sys.argv[2]
-total = to_dec(a) + to_dec(b)
+    # Convert FT_NBR2 to decimal
+    sum2 = 0
+    for (i = 1; i <= length(n2); i++) {
+        sum2 = sum2 * 5 + (index(b5_2, substr(n2, i, 1)) - 1)
+    }
 
-# Convert the decimal sum into base 13 (digits 0-9,A,B,C), one remainder
-# at a time, least-significant digit first, building left to right.
-digits_out = '0123456789ABC'
-b13 = ''
-while total:
-	b13 = digits_out[total % 13] + b13
-	total //= 13
-if not b13:
-	b13 = '0'
+    total = sum1 + sum2
 
-# The output base is not numeric - each base-13 digit maps onto one
-# character of this 13-symbol alphabet instead.
-alphabet = 'gtaio luSnemf'
-print(''.join(alphabet[digits_out.index(c)] for c in b13))
-" "$FT_NBR1" "$FT_NBR2"
+    # Handle edge case of 0
+    if (total == 0) {
+        print substr(b13, 1, 1)
+        exit
+    }
+
+    # Convert decimal total to base 13
+    out = ""
+    while (total > 0) {
+        rem = total % 13
+        out = substr(b13, rem + 1, 1) out
+        total = (total - rem) / 13
+    }
+
+    print out
+}'
