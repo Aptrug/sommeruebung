@@ -1,0 +1,3 @@
+Check whether I've solved shell01 correctly
+be extra meticulous and analyze what shell01 problem demands versus what my
+solutions offer, as devil is in the details
