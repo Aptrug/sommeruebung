@@ -13,13 +13,13 @@
 
 void	ft_print_numbers(void)
 {
-	int	i;
+	char	c;
 
-	i = 0;
-	while (i <= 9)
+	c = '0';
+	while (c <= '9')
 	{
-		write(1, &"0123456789"[i], 1);
-		++i;
+		write(1, &c, 1);
+		++c;
 	}
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

@@ -13,18 +13,18 @@
 
 int	main(int argc, char **argv)
 {
-	int	i;
+	char	*str;
 
 	if (argc < 2)
 	{
 		write(1, "\n", 1);
 		return (0);
 	}
-	i = 0;
-	while (argv[argc - 1][i])
+	str = argv[argc - 1];
+	while (*str)
 	{
-		write(1, &argv[argc - 1][i], 1);
-		++i;
+		write(1, str, 1);
+		++str;
 	}
 	write(1, "\n", 1);
 	return (0);

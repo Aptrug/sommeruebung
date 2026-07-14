@@ -13,16 +13,17 @@
 
 int	main(void)
 {
-	int	i;
-	char	c;
+	int		i;
+	char	letter;
 
 	i = 0;
 	while (i < 26)
 	{
-		c = 'a' + i;
-		if ((i + 1) % 2 == 0)
-			c = c - 'a' + 'A';
-		write(1, &c, 1);
+		if (i % 2 == 0)
+			letter = 'a' + i;
+		else
+			letter = 'A' + i;
+		write(1, &letter, 1);
 		++i;
 	}
 	write(1, "\n", 1);

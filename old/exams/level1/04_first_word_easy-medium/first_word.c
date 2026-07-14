@@ -11,26 +11,23 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	is_space(char c)
+int	main(int argc, char *argv[])
 {
-	return (c == ' ' || c == '\t');
-}
-
-int	main(int argc, char **argv)
-{
-	int	i;
+	int		i;
+	char	*word;
 
 	if (argc != 2)
 	{
 		write(1, "\n", 1);
 		return (0);
 	}
+	word = argv[1];
 	i = 0;
-	while (is_space(argv[1][i]))
+	while (word[i] == ' ' || word[i] == '\t')
 		++i;
-	while (argv[1][i] && !is_space(argv[1][i]))
+	while (word[i] != '\0' && word[i] != ' ' && word[i] != '\t')
 	{
-		write(1, &argv[1][i], 1);
+		write(1, &word[i], 1);
 		++i;
 	}
 	write(1, "\n", 1);

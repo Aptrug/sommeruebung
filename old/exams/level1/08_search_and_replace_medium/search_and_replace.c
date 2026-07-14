@@ -11,25 +11,42 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int	arguments_are_invalid(int argc, char *argv[])
 {
-	int	i;
-
-	if (argc != 4 || argv[2][0] == '\0' || argv[2][1] != '\0'
-		|| argv[3][0] == '\0' || argv[3][1] != '\0')
+	if (argc != 4)
 	{
 		write(1, "\n", 1);
-		return (0);
+		return (1);
 	}
-	i = 0;
-	while (argv[1][i])
+	if (argv[2][0] == '\0' || argv[2][1] != '\0' || argv[3][0] == '\0'
+		|| argv[3][1] != '\0')
 	{
-		if (argv[1][i] == argv[2][0])
-			write(1, &argv[3][0], 1);
-		else
-			write(1, &argv[1][i], 1);
+		write(1, "\n", 1);
+		return (1);
+	}
+	return (0);
+}
+
+int	main(int argc, char *argv[])
+{
+	char	*text;
+	char	search_char;
+	char	replace_char;
+	int		i;
+
+	if (arguments_are_invalid(argc, argv))
+		return (0);
+	text = argv[1];
+	search_char = argv[2][0];
+	replace_char = argv[3][0];
+	i = 0;
+	while (text[i] != '\0')
+	{
+		if (text[i] == search_char)
+			text[i] = replace_char;
 		++i;
 	}
+	write(1, text, i);
 	write(1, "\n", 1);
 	return (0);
 }

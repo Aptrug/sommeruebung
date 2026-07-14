@@ -13,13 +13,13 @@
 
 int	main(void)
 {
-	int	i;
+	char	c;
 
-	i = 9;
-	while (i >= 0)
+	c = '9';
+	while (c >= '0')
 	{
-		write(1, &"0123456789"[i], 1);
-		--i;
+		write(1, &c, 1);
+		--c;
 	}
 	write(1, "\n", 1);
 	return (0);

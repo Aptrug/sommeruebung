@@ -11,11 +11,26 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
+#define MAX_DIGITS 3
+
 void	put_nbr(int n)
 {
-	if (n >= 10)
-		put_nbr(n / 10);
-	write(1, &"0123456789"[n % 10], 1);
+	char	buf[MAX_DIGITS];
+	int		i;
+
+	i = MAX_DIGITS;
+	if (n == 0)
+	{
+		write(1, "0", 1);
+		return ;
+	}
+	while (n > 0)
+	{
+		--i;
+		buf[i] = (n % 10) + '0';
+		n = n / 10;
+	}
+	write(1, &buf[i], MAX_DIGITS - i);
 }
 
 int	main(void)

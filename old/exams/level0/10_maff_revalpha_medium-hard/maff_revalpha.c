@@ -13,17 +13,26 @@
 
 int	main(void)
 {
-	int	i;
-	char	c;
+	int		i;
+	int		is_upper;
+	char	letter;
 
-	i = 0;
-	while (i < 26)
+	i = 25;
+	is_upper = 0;
+	while (i >= 0)
 	{
-		c = 'z' - i;
-		if ((i + 1) % 2 == 0)
-			c = c - 'a' + 'A';
-		write(1, &c, 1);
-		++i;
+		if (is_upper)
+		{
+			is_upper = 0;
+			letter = 'A' + i;
+		}
+		else
+		{
+			is_upper = 1;
+			letter = 'a' + i;
+		}
+		write(1, &letter, 1);
+		--i;
 	}
 	write(1, "\n", 1);
 	return (0);

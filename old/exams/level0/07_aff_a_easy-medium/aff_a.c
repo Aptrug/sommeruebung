@@ -13,17 +13,17 @@
 
 int	main(int argc, char **argv)
 {
-	int	i;
+	char	*s;
 
 	if (argc != 2)
 	{
 		write(1, "a\n", 2);
 		return (0);
 	}
-	i = 0;
-	while (argv[1][i] && argv[1][i] != 'a')
-		++i;
-	if (argv[1][i] == 'a')
+	s = argv[1];
+	while (*s && *s != 'a')
+		++s;
+	if (*s == 'a')
 		write(1, "a", 1);
 	write(1, "\n", 1);
 	return (0);

@@ -11,20 +11,9 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	int	i;
-
-	if (argc != 2)
-	{
-		write(1, "z\n", 2);
-		return (0);
-	}
-	i = 0;
-	while (argv[1][i] && argv[1][i] != 'z')
-		++i;
-	write(1, "z", 1);
-	write(1, "\n", 1);
+	write(1, "z\n", 2);
 	return (0);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
