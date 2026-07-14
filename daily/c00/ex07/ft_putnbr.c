@@ -11,34 +11,25 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-long	highest_div(long n)
+void	ft_putchar(char c)
 {
-	long	div;
-
-	div = 1;
-	while ((n / div) > 9)
-		div = div * 10;
-	return (div);
+	write(1, &c, 1);
 }
 
 void	ft_putnbr(int nb)
 {
 	long	n;
-	long	div;
-	char	c;
 
 	n = nb;
 	if (n < 0)
 	{
-		write(1, "-", 1);
+		ft_putchar('-');
 		n = -n;
 	}
-	div = highest_div(n);
-	while (div > 0)
+	if (n >= 10)
 	{
-		c = '0' + ((n / div) % 10);
-		write(1, &c, 1);
-		div = div / 10;
+		ft_putnbr(n / 10);
 	}
+	ft_putchar((n % 10) + '0');
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
