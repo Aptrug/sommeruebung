@@ -1,14 +1,14 @@
-Check whether I've solved shell00 correctly
-be extra meticulous and analyze what shell00 problems demands versus what my
+Check whether I've solved c00 correctly
+be extra meticulous and analyze what c00 problems demands versus what my
 solutions offer, as devil is in the details
 PS assume everything runs on Ubuntu, no MacOS/BSD
 """
 C Piscine
-Shell 00
+C 00
 
-Summary: This document contains the subject matter for the Shell module 00 of the C
-Piscine at 42.
-Version: 5.0
+Summary: This document serves as the subject for the C 00 module of the C Piscine at
+42.
+Version: 8
 
 Contents
 I
@@ -21,103 +21,123 @@ II
 
 AI Instructions
 
-3
+4
 
 III
 
 Foreword
 
-5
+6
 
 IV
 
-Exercise 00: Z
+Exercise 00: ft_putchar
 
 7
 
 V
 
-Exercise 01: testShell00
+Exercise 01: ft_print_alphabet
 
 8
 
 VI
 
-Exercise 02: Oh yeah, mooore...
+Exercise 02: ft_print_reverse_alphabet
 
 9
 
 VII
 
-Exercise 03: SSH me!
+Exercise 03: ft_print_numbers
 
-11
+10
 
 VIII
 
-Exercise 04: midLS
+Exercise 04: ft_is_negative
 
-12
+11
 
 IX
 
-Exercise 05: GiT commit
+Exercise 05: ft_print_comb
 
 13
 
 X
 
-Exercise 06: gitignore
+Exercise 06: ft_print_comb2
 
-15
+14
 
 XI
 
-Exercise 07: diff
+Exercise 07: ft_putnbr
 
-16
+15
 
 XII
 
-Exercise 08: clean
+Exercise 08: ft_print_combn
 
-17
+16
 
 XIII
 
-Exercise 09: Illusions, not tricks, Michael...
-
-18
-
-XIV
-
 Submission and peer-evaluation
 
-19
+17
 
 1
 
 Chapter I
 Instructions
-• These exercises are carefully arranged in order of difficulty, from easiest to hardest.
-We will not consider a successfully completed harder exercise if an easier one is not
-perfectly functional.
-• Ensure that you have the appropriate permissions on your files and directories.
-• You must follow the submission procedures for every exercise.
+• Only this page serves as your reference, do not trust rumors.
+• Watch out! This document may change before submission.
+• Ensure you have the appropriate permissions on your files and directories.
+• You must follow the submission procedures for all your exercises.
 • Your exercises will be checked and graded by your fellow classmates.
-• Additionally, your exercises will be checked and graded by a program called Moulinette.
-• Moulinette is extremely meticulous and strict in its evaluation. It is entirely
-automated, and there is no way to negotiate with it. To avoid unpleasant surprises,
-be as thorough as possible.
-• Shell exercises must be executable with /bin/sh.
-• You must not leave any additional files in your directory other than those specified
-in the assignment.
+• Additionally, your exercises will be evaluated by a program called Moulinette.
+• Moulinette is meticulous and strict in its assessment. It is fully automated, and
+there is no way to negotiate with it. To avoid unpleasant surprises, be as thorough
+as possible.
+• Moulinette is not open-minded. If your code does not adhere to the Norm, it won’t
+attempt to understand it. Moulinette relies on a program called norminette to
+check if your files comply with the Norm. TL;DR: Submitting work that doesn’t
+pass norminette’s check makes no sense.
+• These exercises are arranged in order of difficulty, from easiest to hardest. We will
+not consider a successfully completed harder exercise if an easier one is not fully
+functional.
+• Using a forbidden function is considered cheating. Cheaters receive a grade of -42,
+which is non-negotiable.
+• You only need to submit a main() function if we specifically ask for a program.
+• Moulinette compiles with the following flags: -Wall -Wextra -Werror, using
+cc.
+• If your program does not compile, you will receive a grade of 0.
+• You cannot leave any additional file in your directory beyond those specified in
+the assignment.
 • Have a question? Ask the peer on your right. If not, try the peer on your left.
-• Your reference guide is called Google / man / the Internet / ...
-• Examine the examples carefully. They may contain details that are not explicitly
-mentioned in the assignment.
 
 2
+
+C Piscine
+
+C 00
+
+• Your reference guide is called Google / man / the Internet / ...
+• Check the "C Piscine" section of the forum on the intranet or the Piscine on Slack.
+• Carefully examine the examples. They may contain crucial details that are not
+explicitly stated in the assignment...
+• By Odin, by Thor! Use your brain!!!
+
+Don’t forget to include the standard 42 header in each of your .c
+and .h files. Norminette checks for its presence anyway!
+
+Norminette must be run with the -R CheckForbiddenSourceHeader flag.
+Moulinette will use it too.
+
+3
 
 Chapter II
 AI Instructions
@@ -141,11 +161,11 @@ dedicated FAQ available on the intranet.
 ☛ Learn about the risks associated with AI, and develop effective control practices
 and countermeasures to avoid common pitfalls.
 
-3
+4
 
 C Piscine
 
-Shell 00
+C 00
 
 ● Learner rules:
 • You should apply reasoning to your assigned tasks, especially before turning to AI.
@@ -180,332 +200,231 @@ for 10 minutes — and suddenly it clicks. I get it.
 I secretly use AI, copy some code that looks right. During peer evaluation, I can’t
 explain anything. I fail. During the exam — no AI — I’m stuck again. I fail.
 
-4
+5
 
 Chapter III
 Foreword
-Below are the lyrics to City Hunter’s theme song, "Moonlight Shadow":
 
-The last time ever she saw him
-Carried away by a moonlight shadow
-He passed on worried and warning
-Carried away by a moonlight shadow.
-Lost in a riddle that Saturday night
-Far away on the other side.
-He was caught in the middle of a desperate fight
-And she couldn’t find how to push through
-The trees that whisper in the evening
-Carried away by a moonlight shadow
-Sing a song of sorrow and grieving
-Carried away by a moonlight shadow
-All she saw was a silhouette of a gun
-Far away on the other side.
-He was shot six times by a man on the run
-And she couldn’t find how to push through
-[Chorus]
-I stay, I pray
-See you in Heaven far away...
-I stay, I pray
-See you in Heaven one day.
-Four A.M. in the morning
-Carried away by a moonlight shadow
-I watched your vision forming
-Carried away by a moonlight shadow
-A star was glowing in the silvery night
-Far away on the other side
-Will you come to talk to me this night
-But she couldn’t find how to push through
+Cod liver oil is a nutritional supplement derived from the liver of codfish (Gadidae)
+Like most fish oils, it contains high levels of omega-3 fatty acids, including
+eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA). Cod liver oil is
+also rich in vitamins A and D.
+Historically, it has been consumed for its vitamin A and vitamin D content.
+It was once commonly given to children, as vitamin D has been shown to prevent
+rickets and other symptoms of vitamin D deficiency.
 
-5
-
-C Piscine
-
-Shell 00
-
-[Chorus]
-Far away on the other side.
-Caught in the middle of a hundred and five
-The night was heavy and the air was alive
-But she couldn’t find how to push through
-Carried away by a moonlight shadow
-Carried away by a moonlight shadow
-Far away on the other side.
-Unfortunately, this topic has nothing to do with City Hunter.
+In contrast to cod liver oil, C is good, make sure to eat some!
 
 6
 
 Chapter IV
-Exercise 00: Z
+Exercise 00: ft_putchar
 Exercise 00
-Only the best know how to display Z
+ft_putchar
 Turn-in directory: ex00/
-Files to turn in: z
-Allowed functions: None
+Files to turn in: ft_putchar.c
+Allowed functions: write
 
-• Create a file called z that returns "Z", followed by a new line, whenever the cat
-command is used on it.
-?>cat z
-Z
-?>
+• Write a function that displays the character passed as a parameter.
+• The function should be prototyped as follows:
+void ft_putchar(char c);
 
-Google is your friend.
+• To display the character, you must use the write function as follows:
+write(1, &c, 1);
+
+The first retry delay is short, so don’t hesitate to trigger an
+intermediate evaluation to track your progress.
 
 7
 
 Chapter V
-Exercise 01: testShell00
+Exercise 01: ft_print_alphabet
 Exercise 01
-What are attributes anyway ?
+ft_print_alphabet
 Turn-in directory: ex01/
-Files to turn in: testShell00.tar
-Allowed functions: None
+Files to turn in: ft_print_alphabet.c
+Allowed functions: write
 
-• Create a file called testShell00 in your submission directory.
-• Figure out a way to make the output look like this (except for the "total 1" line):
-%> ls -l
-total 1
--r--r-xr-x 1 XX XX 40 Jun 1 23:42 testShell00
-%>
+• Create a function that displays the alphabet in lowercase, on a single line, in ascending order, starting from the letter ’a’.
+• The function should be prototyped as follows:
+void ft_print_alphabet(void);
 
-• Once you’ve achieved the previous steps, execute the following command to create
-the file to be submitted:
-%> tar -cf testShell00.tar testShell00
-
-• Don’t worry about what appears instead of "XX".
-• A year will be accepted instead of the time in the file’s
-timestamp.
-
-Did you check with your right-side neighbor?
+Don’t hesitate to randomly ask someone in your cluster if you have a
+question.
 
 8
 
 Chapter VI
-Exercise 02: Oh yeah, mooore...
+Exercise 02:
+ft_print_reverse_alphabet
 Exercise 02
-Oh yeah, mooore...
+ft_print_reverse_alphabet
 Turn-in directory: ex02/
-Files to turn in: exo2.tar
-Allowed functions: None
+Files to turn in: ft_print_reverse_alphabet.c
+Allowed functions: write
 
-• Create the following files and directories. Adjust their properties so that when you
-run the ls -l command in your directory, the output looks like this:
-%> ls -l
-total XX
-drwx--xr-x 2 XX XX XX Jun 1 20:47 test0
--rwx--xr-- 1 XX XX 4 Jun 1 21:46 test1
-dr-x---r-- 2 XX XX XX Jun 1 22:45 test2
--r-----r-- 2 XX XX 1 Jun 1 23:44 test3
--rw-r----x 1 XX XX 2 Jun 1 23:43 test4
--r-----r-- 2 XX XX 1 Jun 1 23:44 test5
-lrwxrwxrwx 1 XX XX 5 Jun 1 22:20 test6 -> test0
-%>
+• Create a function that displays the alphabet in lowercase, on a single line, in descending order, starting from the letter ’z’.
+• The function should be prototyped as follows:
+void ft_print_reverse_alphabet(void);
 
-• Once you’ve completed this, run the following command to create the file to be
-submitted:
-%> tar -cf exo2.tar *
-
-• Don’t worry about what appears instead of "XX".
-• A year will be accepted instead of the time in the file’s
-timestamp.
+Push your code to Git regularly!
 
 9
 
-C Piscine
+Chapter VII
+Exercise 03: ft_print_numbers
+Exercise 03
+ft_print_numbers
+Turn-in directory: ex03/
+Files to turn in: ft_print_numbers.c
+Allowed functions: write
 
-Shell 00
+• Create a function that displays all digits on a single line, in ascending order.
+• The function should be prototyped as follows:
+void ft_print_numbers(void);
 
-Don’t hesitate to randomly ask someone in your cluster for help!
+Collaboration is the key to success.
 
 10
 
-Chapter VII
-Exercise 03: SSH me!
-Exercise 03
-SSH Key
-Turn-in directory: ex03/
-Files to turn in: id_rsa_pub
-Allowed functions: None
+Chapter VIII
+Exercise 04: ft_is_negative
+Exercise 04
+ft_is_negative
+Turn-in directory: ex04/
+Files to turn in: ft_is_negative.c
+Allowed functions: write
 
-• Create your own SSH key. Once done:
-◦ Add your public key to your repository in a file named id_rsa_pub
-◦ Update your SSH key on the intranet. This will allow you to push the repository to our git server.
+• Create a function that displays ’N’ or ’P’ depending on the sign of the integer passed
+as a parameter.
+◦ If n is negative, display ’N’.
+◦ If n is positive or zero, display ’P’.
+• The function should be prototyped as follows:
+void ft_is_negative(int n);
 
-• The file name was not chosen randomly.
-• Make sure you understand the difference between the public key
-and the private key.
-
-Did you check with your left-side neighbor?
+Failure is part of your learning journey.
 
 11
 
-Chapter VIII
-Exercise 04: midLS
-Exercise 04
-midLS
-Turn-in directory: ex04/
-Files to turn in: midLS
-Allowed functions: None
+C Piscine
 
-• In a file named midLS, write the command that lists all files and directories in your
-current directory (excluding hidden files or any file starting with a dot, including
-double dots).
-• The output should be sorted by modification date, with entries separated by a
-comma and a space.
-• Directory names should end with a slash (/).
+C 00
 
-Do only what is asked, nothing more!
-
-• RTFM!
-• Git push regularly.
+Milestone Achieved, Keep Going!
+You have reached the end of the mandatory exercises required to validate this project.
+Now, it’s up to you to decide whether to continue with the following optional exercises
+or move on to your next project. Both paths will expose you to valuable concepts sooner
+or later.
+To make your decision, consider the following points:
+• The very first exam focuses on C programming. If you’ve already worked on the
+first C project, this experience will be useful. The same applies to the "rush" at the
+end of the week (you’ll soon learn more about it).
+• Your excellence in this Piscine is evaluated based on multiple factors. Completing
+each project is important, but your overall progress across all Piscine projects also
+plays a key role. Choose wisely to optimize your results.
+• You can always revisit and retry the same project in a few days or weeks, up until
+the end of the Piscine.
+• Staying synchronized with your peers fosters better collaboration.
 
 12
 
 Chapter IX
-Exercise 05: GiT commit
+Exercise 05: ft_print_comb
 Exercise 05
-GiT commit?
+ft_print_comb
 Turn-in directory: ex05/
-Files to turn in: git_commit.sh
-Allowed functions: None
+Files to turn in: ft_print_comb.c
+Allowed functions: write
 
-• Create a shell script that displays the ids of the last 5 commits in your git repository.
-%> bash git_commit.sh | cat -e
-baa23b54f0adb7bf42623d6d0a6ed4587e11412a$
-2f52d74b1387fa80eea844969e8dc5483b531ac1$
-905f53d98656771334f53f59bb984fc29774701f$
-5ddc8474f4f15b3fcb72d08fcb333e19c3a27078$
-e94d0b448c03ec633f16d84d63beaef9ae7e7be8$
-%>
+• Create a function that displays all unique combinations of three distinct digits,
+with both the digits within each combination and the combinations themselves in
+ascending order.
 
-• Your script will be tested in our own environment.
+• Expected output:
+$>./a.out | cat -e
+012, 013, 014, 015, 016, 017, 018, 019, 023, ..., 789$>
 
-• RTFM!
-• The first retry delay is short, trigger an intermediate
-evaluation to track your progress!
+• 987 is not included because 789 already covers that combination.
+• 999 is not included because the digit 9 appears more than once.
+• The function should be prototyped as follows:
+void ft_print_comb(void);
+
+Did you check with your neighbor on the right?
 
 13
 
-C Piscine
+Chapter X
+Exercise 06: ft_print_comb2
+Exercise 06
+ft_print_comb2
+Turn-in directory: ex06/
+Files to turn in: ft_print_comb2.c
+Allowed functions: write
 
-Shell 00
+• Create a function that displays all different combinations of two distinct two-digits
+numbers (XX XX) between 00 and 99, listed in ascending order.
+• Expected output:
+$>./a.out | cat -e
+00 01, 00 02, 00 03, 00 04, 00 05, ..., 00 99, 01 02, ..., 97 99, 98 99$>
 
-Milestone Achieved, Keep Going!
-You’ve completed the mandatory exercises for this project. Now, you have a choice:
-• Continue with the optional exercises to explore more.
-• Move on to your next project.
-Both paths will introduce you to useful concepts. Consider the following before making
-your decision:
-• Your first exam, as well as the end-of-week rush, will focus on C programming. It
-might therefore be useful to gain experience in this field beforehand. (You’ll learn
-more about the rush soon).
-• Your performance in this Piscine is evaluated on multiple factors:
-◦ Project completion is one aspect.
-◦ Overall progress through the full list of Piscine projects is another. Choose
-wisely to maximize your results.
-• You can retry the same project in a few days or weeks until the end of the Piscine.
-• Staying in sync with your peers promotes better collaboration.
+• The function should be prototyped as follows:
+void ft_print_comb2(void);
+
+Get inspired by others, but don’t let them do the work for you!
 
 14
 
-Chapter X
-Exercise 06: gitignore
-Exercise 06
-GiT
-Turn-in directory: ex06/
-Files to turn in: git_ignore.sh
-Allowed functions: None
+Chapter XI
+Exercise 07: ft_putnbr
+Exercise 07
+ft_putnbr
+Turn-in directory: ex07/
+Files to turn in: ft_putnbr.c
+Allowed functions: write
 
-• Write a short shell script that lists all the existing files ignored by your Git repository.
-Example output:
-%> bash git_ignore.sh | cat -e
-.DS_Store$
-mywork.c~$
-%>
+• Create a function that displays the number passed as a parameter. The function
+must be able to display all possible values of an int type variable.
+• The function should be prototyped as follows:
+void ft_putnbr(int nb);
 
-• Your script will be tested in our own environment.
+• Example:
+◦ ft_putnbr(42); should display 42.
 
-• RTFM!
-• Get inspired by others, but don’t let them do your work!
+Don’t trust any single source of information, always run your own
+tests, checks, and verifications!
 
 15
 
-Chapter XI
-Exercise 07: diff
-Exercise 07
+Chapter XII
+Exercise 08: ft_print_combn
+Exercise 08
+ft_print_combn
+Turn-in directory: ex08/
+Files to turn in: ft_print_combn.c
+Allowed functions: write
 
-Turn-in directory: ex07/
-Files to turn in: b
-Allowed functions: None
+• Create a function that displays all unique combinations of n distinct digits in ascending order, without repetition.
+• The value of n will be such that: 0 < n < 10.
+• Example output for n = 2:
+$>./a.out | cat -e
+01, 02, 03, ..., 09, 12, ..., 79, 89$>
 
-• Create a file named b, so that:
-%>cat -e a
-STARWARS$
-Episode IV, A NEW HOPE It is a period of civil war.$
-$
-Rebel spaceships, striking from a hidden base, have won their first victory against the evil
-Galactic Empire.$
-During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon,
-the DEATH STAR,$
-an armored space station with enough power to destroy an entire planet.$
-$
-Pursued by the Empire's sinister agents, Princess Leia races home aboard her starship, custodian
-of the stolen plans that can save her people and restore freedom to the galaxy...$
-$
-%>diff a b > sw.diff
+• The function should be prototyped as follows:
+void ft_print_combn(int n);
 
-• man patch
-• Don’t blindly trust any source, always test, verify, and
-validate your results yourself!
+Did you check with your neighbor on the left?
 
 16
 
-Chapter XII
-Exercise 08: clean
-Exercise 08
+Chapter XIII
+Submission and peer-evaluation
+Submit your assignment in your Git repository as usual. Only the work inside your
+repository will be evaluated during the defense. Make sure to double-check the names of
+your files to ensure they are correct.
 
-Turn-in directory: ex08/
-Files to turn in: clean
-Allowed functions: None
-
-• In a file called clean write a single command that:
-◦ Searches for all files in the current directory and its subdirectories that end
-with ~ (tilde) or, start and end with # (hash).
-◦ Displays the found files and deletes them.
-• Only one command is allowed, no ’;’ or ’&&’ or other chaining tricks.
-
-• man find
-• Collaboration is key to success!
+You must submit only the files specified in the project instructions.
 
 17
-
-Chapter XIII
-Exercise 09: Illusions, not tricks,
-Michael...
-Exercise 09
-Illusions, not tricks, Michael...
-Turn-in directory: ex09/
-Files to turn in: ft_magic
-Allowed functions: None
-
-• Create a magic file named ft_magic that is properly formatted to enable the
-file command to detect files of type 42 file, defined as those containing the
-string "42" at the 42nd byte.
-
-• man file
-• Failure is part of your learning journey
-
-18
-
-Chapter XIV
-Submission and peer-evaluation
-Submit your assignment to your Git repository as usual. Only the work inside your
-repository will be evaluated during the defense. Make sure to double-check the filenames
-to ensure they are correct.
-
-You must submit only the files explicitly required by the project
-instructions.
-
-19
 
 
 """
