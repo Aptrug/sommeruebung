@@ -57,7 +57,7 @@ void	ft_build_combinations(int *nb, int n, int idx)
 	if (idx == 0)
 		digit = 0;
 	else
-		digit = nb[idx - 1] + 1; // Must be strictly greater than the left box
+		digit = nb[idx - 1] + 1;
 
 	while (digit <= 9)
 	{
