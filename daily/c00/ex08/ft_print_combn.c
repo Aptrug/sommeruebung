@@ -56,12 +56,12 @@ void	ft_build_combinations(int *nb, int n, int idx)
 		digit = 0;
 	else
 		digit = nb[idx - 1] + 1;
-
 	while (digit <= 9)
+	{
 		nb[idx] = digit;
-	ft_build_combinations(nb, n, idx + 1);
-	digit++;
-}
+		ft_build_combinations(nb, n, idx + 1);
+		digit++;
+	}
 }
 
 void	ft_print_combn(int n)
