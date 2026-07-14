@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 {
 	int		i;
 	char	c;
+	char	*str;
 
 	if (argc != 2)
 	{
@@ -31,9 +32,10 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	i = 0;
-	while (argv[1][i])
+	str = argv[1];
+	while (str[i])
 	{
-		c = rot_13(argv[1][i]);
+		c = rot_13(str[i]);
 		write(1, &c, 1);
 		++i;
 	}
