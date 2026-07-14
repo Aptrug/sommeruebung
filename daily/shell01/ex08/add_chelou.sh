@@ -13,13 +13,13 @@ BEGIN {
 
 	# Convert FT_NBR1 to decimal
 	sum1 = 0
-	for (i = 1; i <= length(n1); ++i) {
+	for (i = 1; i <= length(n1); i++) {
 		sum1 = sum1 * 5 + (index(b5_1, substr(n1, i, 1)) - 1)
 	}
 
 	# Convert FT_NBR2 to decimal
 	sum2 = 0
-	for (i = 1; i <= length(n2); ++i) {
+	for (i = 1; i <= length(n2); i++) {
 		sum2 = sum2 * 5 + (index(b5_2, substr(n2, i, 1)) - 1)
 	}
 

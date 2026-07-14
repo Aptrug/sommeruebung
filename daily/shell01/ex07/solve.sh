@@ -16,25 +16,39 @@
 set -eu
 install -m 755 /dev/stdin r_dwssap.sh << 'EOF'
 #!/bin/sh
-awk -F: '
+
+awk -F: -v l1="$FT_LINE1" -v l2="$FT_LINE2" '
+# skip comment lines
 /^#/ { next }
+
 {
-	n++
-	if (n % 2 != 0) next
+	++count
+	# keep only every other line, starting from the 2nd real line
+	if (count % 2 != 0) next
+
 	login = $1
-	rev = ""
-	for (i = length(login); i >= 1; --i) rev = rev substr(login, i, 1)
-	print rev
-}' /etc/passwd | sort -r | awk -v l1="$FT_LINE1" -v l2="$FT_LINE2" '
-{ a[NR] = $0 }
+	reversed = ""
+	for (i = length(login); i >= 1; i--)
+		reversed = reversed substr(login, i, 1)
+
+	list[++n] = reversed
+}
+
 END {
-	out = ""
-	for (i = l1; i <= l2; ++i) {
-		if (!(i in a)) continue
-		if (out != "")
-			out = out ", "
-		out = out a[i]
+	# sort the reversed logins in reverse alphabetical order
+	for (i = 1; i <= n; ++i)
+		for (j = i + 1; j <= n; ++j)
+			if (list[i] < list[j]) {
+				tmp = list[i]; list[i] = list[j]; list[j] = tmp
+			}
+
+	# keep only lines l1..l2, join with ", "
+	result = ""
+	for (i = l1; i <= l2 && i <= n; ++i) {
+		if (result != "")
+			result = result ", "
+		result = result list[i]
 	}
-	print out "."
-}'
+	print result "."
+}' /etc/passwd
 EOF
