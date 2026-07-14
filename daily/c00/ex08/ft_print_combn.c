@@ -17,76 +17,63 @@ void	ft_putchar(char c)
 }
 
 /*
-** Prints one combination, e.g. nb = [1, 2] -> "12".
-** *printed starts at 0 (nothing printed yet). The first time we
-** get called we skip the ", " and set *printed to 1; every call
-** after that sees *printed == 1 and adds ", " before its digits.
+** Prints the current array of numbers.
+** Instead of a pointer to track if it's the first time printing,
+** we just check if it's the LAST time printing to skip the comma.
 */
-void	ft_print_combination(int *nb, int n, int *printed)
+void	ft_print_combination(int *nb, int n)
 {
-	int	j;
+	int	i;
 
-	if (*printed)
+	i = 0;
+	while (i < n)
+	{
+		ft_putchar(nb[i] + '0');
+		i++;
+	}
+
+	if (nb[0] != 10 - n)
 	{
 		ft_putchar(',');
 		ft_putchar(' ');
 	}
-	*printed = 1;
-	j = 0;
-	while (j < n)
-	{
-		ft_putchar(nb[j] + '0');
-		++j;
-	}
 }
 
 /*
-** Fills nb[idx], nb[idx + 1], ... one digit at a time, always
-** picking digits in increasing order so we never repeat one or
-** go backwards. The smallest digit allowed at this position is
-** "one more than the digit we just placed before it"
-** (or 0 if this is the very first digit).
-**
-** Once nb is completely filled (idx == n), we have one full
-** combination ready to print.
+** Think of the array 'nb' as a row of boxes.
+** 'n' is the total number of boxes.
+** 'idx' is the specific box we are trying to fill right now.
 */
-void	ft_build_combinations(int *nb, int n, int idx, int *printed)
+void	ft_build_combinations(int *nb, int n, int idx)
 {
 	int	digit;
-	int	smallest_allowed;
 
 	if (idx == n)
 	{
-		ft_print_combination(nb, n, printed);
+		ft_print_combination(nb, n);
 		return ;
 	}
+
 	if (idx == 0)
-	{
-		smallest_allowed = 0;
-	}
+		digit = 0;
 	else
-	{
-		smallest_allowed = nb[idx - 1] + 1;
-	}
-	digit = smallest_allowed;
+		digit = nb[idx - 1] + 1; // Must be strictly greater than the left box
+
 	while (digit <= 9)
 	{
 		nb[idx] = digit;
-		ft_build_combinations(nb, n, idx + 1, printed);
-		++digit;
+		ft_build_combinations(nb, n, idx + 1);
+		digit++;
 	}
 }
 
 void	ft_print_combn(int n)
 {
 	int	nb[10];
-	int	printed;
 
 	if (n <= 0 || n >= 10)
-	{
 		return ;
-	}
-	printed = 0;
-	ft_build_combinations(nb, n, 0, &printed);
+
+	ft_build_combinations(nb, n, 0);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
