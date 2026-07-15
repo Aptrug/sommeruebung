@@ -11,34 +11,27 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	print_nb(int nb)
-{
-	char	buffer[2];
-
-	buffer[0] = '0' + (nb / 10);
-	buffer[1] = '0' + (nb % 10);
-	write(1, buffer, 2);
-}
-
 void	ft_print_comb2(void)
 {
-	int	a;
-	int	b;
+	int		a;
+	int		b;
+	char	buf[5];
 
-	a = 0;
-	while (a <= 98)
+	buf[2] = ' ';
+	a = -1;
+	while (++a <= 98)
 	{
-		b = a + 1;
-		while (b <= 99)
+		b = a;
+		while (++b <= 99)
 		{
-			print_nb(a);
-			write(1, " ", 1);
-			print_nb(b);
+			buf[0] = (a / 10) + '0';
+			buf[1] = (a % 10) + '0';
+			buf[3] = (b / 10) + '0';
+			buf[4] = (b % 10) + '0';
+			write(1, buf, 5);
 			if (a != 98 || b != 99)
 				write(1, ", ", 2);
-			++b;
 		}
-		++a;
 	}
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

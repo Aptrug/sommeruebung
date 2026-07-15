@@ -15,21 +15,18 @@ void	ft_sort_int_tab(int *tab, int size)
 	int	j;
 	int	tmp;
 
-	i = 0;
-	while (i < size - 1)
+	i = 1;
+	while (i < size)
 	{
-		j = 0;
-		while (j < size - 1 - i)
+		tmp = tab[i];
+		j = i - 1;
+		while (j >= 0 && tab[j] > tmp)
 		{
-			if (tab[j] > tab[j + 1])
-			{
-				tmp = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = tmp;
-			}
-			++j;
+			tab[j + 1] = tab[j];
+			j--;
 		}
-		++i;
+		tab[j + 1] = tmp;
+		i++;
 	}
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

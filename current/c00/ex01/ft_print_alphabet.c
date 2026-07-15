@@ -6,7 +6,7 @@
 /*   By: ysabraou <ysabraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 06:21:19 by ysabraou          #+#    #+#             */
-/*   Updated: 2026/07/14 06:21:19 by ysabraou         ###   ########.fr       */
+/*   Updated: 2026/07/15 18:51:02 by ysabraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -22,4 +22,3 @@ void	ft_print_alphabet(void)
 		++c;
 	}
 }
-/* vim: set noet ts=4 sw=4 tw=80 : */

@@ -11,25 +11,33 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#define INT_MAX_DIGITS 10
+#define BUF_SIZE 11
 
 void	ft_putnbr(int nb)
 {
-	long	n;
+	char	buf[BUF_SIZE];
+	char	*ptr;
+	int		n;
 
-	n = nb;
-	if (n < 0)
+	if (nb == -2147483648)
 	{
-		ft_putchar('-');
-		n = -n;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	if (n >= 10)
+	if (nb < 0)
+		n = -nb;
+	else
+		n = nb;
+	ptr = buf + INT_MAX_DIGITS;
+	*ptr = (n % 10) + '0';
+	while (n > 9)
 	{
-		ft_putnbr(n / 10);
+		n /= 10;
+		*(--ptr) = (n % 10) + '0';
 	}
-	ft_putchar((n % 10) + '0');
+	if (nb < 0)
+		*(--ptr) = '-';
+	write(1, ptr, (buf + BUF_SIZE) - ptr);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

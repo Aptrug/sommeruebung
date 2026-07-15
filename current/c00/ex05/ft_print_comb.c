@@ -13,29 +13,30 @@
 
 void	ft_print_comb(void)
 {
-	char	a;
-	char	b;
-	char	c;
+	char	buf[5];
 
-	a = '0';
-	while (a <= '7')
+	buf[0] = '0';
+	while (buf[0] <= '7')
 	{
-		b = a + 1;
-		while (b <= '8')
+		buf[1] = buf[0] + 1;
+		while (buf[1] <= '8')
 		{
-			c = b + 1;
-			while (c <= '9')
+			buf[2] = buf[1] + 1;
+			while (buf[2] <= '9')
 			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a != '7' || b != '8' || c != '9')
-					write(1, ", ", 2);
-				++c;
+				if (buf[0] == '7' && buf[1] == '8' && buf[2] == '9')
+					write(1, buf, 3);
+				else
+				{
+					buf[3] = ',';
+					buf[4] = ' ';
+					write(1, buf, 5);
+				}
+				buf[2]++;
 			}
-			++b;
+			buf[1]++;
 		}
-		++a;
+		buf[0]++;
 	}
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
