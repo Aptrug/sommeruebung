@@ -11,28 +11,26 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	last_word(char *str)
-{
-	char	*end;
-	char	*start;
-
-	end = str;
-	while (*end)
-		end++;
-	end--;
-	while (end >= str && (*end == ' ' || *end == '\t'))
-		end--;
-	start = end;
-	while (start >= str && *start != ' ' && *start != '\t')
-		start--;
-	if (end >= str)
-		write(1, start + 1, end - start);
-}
-
 int	main(int argc, char **argv)
 {
+	int	end;
+	int	start;
+
 	if (argc == 2)
-		last_word(argv[1]);
+	{
+		end = 0;
+		while (argv[1][end])
+			end++;
+		end--;
+		while (end >= 0 && (argv[1][end] == ' ' || argv[1][end] == '\t'))
+			end--;
+		start = end;
+		while (start > 0 && argv[1][start - 1] != ' '
+			&& argv[1][start - 1] != '\t')
+			start--;
+		if (end >= 0)
+			write(1, &argv[1][start], end - start + 1);
+	}
 	write(1, "\n", 1);
 	return (0);
 }
