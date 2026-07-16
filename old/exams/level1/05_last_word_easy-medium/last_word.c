@@ -11,45 +11,28 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	find_last_word(char *text, int *word_start)
+void	last_word(char *str)
 {
-	int	i;
-	int	current_length;
-	int	last_length;
+	char	*end;
+	char	*start;
 
-	i = 0;
-	current_length = 0;
-	last_length = 0;
-	*word_start = 0;
-	while (text[i] != '\0')
-	{
-		if (text[i] != ' ' && text[i] != '\t')
-		{
-			if (current_length == 0)
-				*word_start = i;
-			++current_length;
-			last_length = current_length;
-		}
-		else
-			current_length = 0;
-		++i;
-	}
-	return (last_length);
+	end = str;
+	while (*end)
+		end++;
+	end--;
+	while (end >= str && (*end == ' ' || *end == '\t'))
+		end--;
+	start = end;
+	while (start >= str && *start != ' ' && *start != '\t')
+		start--;
+	if (end >= str)
+		write(1, start + 1, end - start);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	int	word_start;
-	int	last_length;
-
-	if (argc != 2)
-	{
-		write(1, "\n", 1);
-		return (0);
-	}
-	last_length = find_last_word(argv[1], &word_start);
-	if (last_length > 0)
-		write(1, &argv[1][word_start], last_length);
+	if (argc == 2)
+		last_word(argv[1]);
 	write(1, "\n", 1);
 	return (0);
 }
