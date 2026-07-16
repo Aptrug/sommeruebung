@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabraou <ysabraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/17 00:20:13 by ysabraou          #+#    #+#             */
-/*   Updated: 2026/07/17 00:20:13 by ysabraou         ###   ########.fr       */
+/*   Created: 2026/07/17 00:20:52 by ysabraou          #+#    #+#             */
+/*   Updated: 2026/07/17 00:20:52 by ysabraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -14,8 +14,7 @@
 int	main(int argc, char **argv)
 {
 	int		len;
-	int		start;
-	int		end;
+	int		i;
 	char	tmp;
 	char	*str;
 
@@ -25,15 +24,13 @@ int	main(int argc, char **argv)
 		len = 0;
 		while (str[len])
 			len++;
-		start = 0;
-		end = len - 1;
-		while (start < end)
+		i = 0;
+		while (i < len / 2)
 		{
-			tmp = str[start];
-			str[start] = str[end];
-			str[end] = tmp;
-			++start;
-			--end;
+			tmp = str[i];
+			str[i] = str[len - 1 - i];
+			str[len - 1 - i] = tmp;
+			i++;
 		}
 		write(1, str, len);
 	}
