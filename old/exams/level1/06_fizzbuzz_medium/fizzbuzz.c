@@ -11,26 +11,21 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-#define MAX_DIGITS 3
+#define BUFSZ 3
 
 void	put_nbr(int n)
 {
-	char	buf[MAX_DIGITS];
-	int		i;
+	char	buf[BUFSZ];
+	char	*ptr;
 
-	i = MAX_DIGITS;
-	if (n == 0)
+	ptr = buf + BUFSZ - 1;
+	*ptr = (n % 10) + '0';
+	while (n > 9)
 	{
-		write(1, "0", 1);
-		return ;
+		n /= 10;
+		*(--ptr) = (n % 10) + '0';
 	}
-	while (n > 0)
-	{
-		--i;
-		buf[i] = (n % 10) + '0';
-		n = n / 10;
-	}
-	write(1, &buf[i], MAX_DIGITS - i);
+	write(1, ptr, (buf + BUFSZ) - ptr);
 }
 
 int	main(void)

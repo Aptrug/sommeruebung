@@ -14,21 +14,21 @@
 int	main(void)
 {
 	int		i;
-	int		is_upper;
+	int		should_be_upper;
 	char	letter;
 
 	i = 25;
-	is_upper = 0;
+	should_be_upper = 0;
 	while (i >= 0)
 	{
-		if (is_upper)
+		if (should_be_upper)
 		{
-			is_upper = 0;
+			should_be_upper = 0;
 			letter = 'A' + i;
 		}
 		else
 		{
-			is_upper = 1;
+			should_be_upper = 1;
 			letter = 'a' + i;
 		}
 		write(1, &letter, 1);

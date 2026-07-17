@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 			&& argv[1][start - 1] != '\t')
 			start--;
 		if (end >= 0)
-			write(1, &argv[1][start], end - start + 1);
+			write(1, argv[1] + start, end - start + 1);
 	}
 	write(1, "\n", 1);
 	return (0);
