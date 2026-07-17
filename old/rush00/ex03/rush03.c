@@ -11,53 +11,37 @@
 /* ************************************************************************** */
 void	ft_putchar(char c);
 
-void	print_border_line(int width)
+void	print_line(int x, char start, char mid, char end)
 {
 	int	column;
 
 	column = 1;
-	while (column <= width)
+	while (column <= x)
 	{
 		if (column == 1)
-			ft_putchar('A');
-		else if (column == width)
-			ft_putchar('C');
+			ft_putchar(start);
+		else if (column == x)
+			ft_putchar(end);
 		else
-			ft_putchar('B');
+			ft_putchar(mid);
 		++column;
 	}
 	ft_putchar('\n');
 }
 
-void	print_middle_line(int width)
-{
-	int	column;
-
-	column = 1;
-	while (column <= width)
-	{
-		if (column == 1 || column == width)
-			ft_putchar('B');
-		else
-			ft_putchar(' ');
-		++column;
-	}
-	ft_putchar('\n');
-}
-
-void	rush(int width, int height)
+void	rush(int x, int y)
 {
 	int	row;
 
-	if (width <= 0 || height <= 0)
+	if (x <= 0 || y <= 0)
 		return ;
 	row = 1;
-	while (row <= height)
+	while (row <= y)
 	{
-		if (row == 1 || row == height)
-			print_border_line(width);
+		if (row == 1 || row == y)
+			print_line(x, 'A', 'B', 'C');
 		else
-			print_middle_line(width);
+			print_line(x, 'B', ' ', 'B');
 		++row;
 	}
 }
