@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   ft_putnbr.c                                                              */
-/*                                                                            */
-/*   By: ysabraou <ysabraou@student.1337.ma>                                  */
-/*                                                                            */
-/*   Created: 2026/07/09 09:46:42 by ysabraou                                 */
-/*   Updated: 2026/07/09 09:46:42 by ysabraou                                 */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysabraou <ysabraou@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/15 20:21:05 by ysabraou          #+#    #+#             */
+/*   Updated: 2026/07/15 20:21:05 by ysabraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -18,17 +18,11 @@ void	ft_putnbr(int nb)
 {
 	char	buf[BUF_SIZE];
 	char	*ptr;
-	int		n;
+	long	n;
 
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (nb < 0)
-		n = -nb;
-	else
-		n = nb;
+	n = nb;
+	if (n < 0)
+		n = -n;
 	ptr = buf + INT_MAX_DIGITS;
 	*ptr = (n % 10) + '0';
 	while (n > 9)

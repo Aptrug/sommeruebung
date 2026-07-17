@@ -15,6 +15,9 @@ void	ft_rev_int_tab(int *tab, int size)
 	int	*end;
 	int	tmp;
 
+	if (!tab || size <= 1)
+		return ;
+
 	start = tab;
 	end = tab + size - 1;
 	while (start < end)
