@@ -11,22 +11,16 @@
 /* ************************************************************************** */
 void	ft_rev_int_tab(int *tab, int size)
 {
-	int	*start;
-	int	*end;
+	int	i;
 	int	tmp;
 
-	if (!tab || size <= 1)
-		return ;
-
-	start = tab;
-	end = tab + size - 1;
-	while (start < end)
+	i = 0;
+	while (i < (size / 2))
 	{
-		tmp = *start;
-		*start = *end;
-		*end = tmp;
-		start++;
-		end--;
+		tmp = tab[i];
+		tab[i] = tab[size - 1 - i];
+		tab[size - 1 - i] = tmp;
+		i++;
 	}
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
