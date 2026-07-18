@@ -20,10 +20,19 @@ int	ft_atoi(char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');
-		str++;
+		++str;
 	}
 	return (res);
 }
+
+/*
+ * [0] is top-left,
+ * [1] is top-right,
+ * [2] is bottom-left,
+ * [3] is bottom-right,
+ * [4] is horizontal-edge,
+ * and [5] is vertical-edge
+ */
 
 int	main(int argc, char **argv)
 {

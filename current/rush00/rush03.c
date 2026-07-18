@@ -24,7 +24,7 @@ void	print_line(int x, char left, char right, char mid)
 			ft_putchar(right);
 		else
 			ft_putchar(mid);
-		col++;
+		++col;
 	}
 	ft_putchar('\n');
 }
@@ -53,7 +53,7 @@ void	execute_rush(int x, int y, char *c)
 			print_line(x, c[2], c[3], c[4]);
 		else
 			print_line(x, c[5], c[5], ' ');
-		row++;
+		++row;
 	}
 }
 
