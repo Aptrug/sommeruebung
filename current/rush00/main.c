@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysabraou <ysabraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: raaribou <raaribou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/18 14:47:54 by ysabraou          #+#    #+#             */
-/*   Updated: 2026/07/18 14:47:54 by ysabraou         ###   ########.fr       */
+/*   Created: 2026/07/18 14:47:54 by raaribou          #+#    #+#             */
+/*   Updated: 2026/07/18 14:47:54 by raaribou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 void	rush(int x, int y);

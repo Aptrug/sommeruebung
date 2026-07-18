@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysabraou <ysabraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: raaribou <raaribou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/18 14:48:05 by ysabraou          #+#    #+#             */
-/*   Updated: 2026/07/18 14:48:05 by ysabraou         ###   ########.fr       */
+/*   Created: 2026/07/18 14:48:05 by raaribou          #+#    #+#             */
+/*   Updated: 2026/07/18 14:48:05 by raaribou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
