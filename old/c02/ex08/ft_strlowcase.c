@@ -22,4 +22,17 @@ char	*ft_strlowcase(char *str)
 	}
 	return (str);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "Hello, 42!";
+
+	printf("%s\n", ft_strlowcase(str));
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

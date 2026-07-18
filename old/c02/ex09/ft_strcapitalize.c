@@ -31,24 +31,37 @@ char	to_lower(char c)
 
 char	*ft_strcapitalize(char *str)
 {
-	int	i;
-	int	start_of_word;
+	char	*ptr;
+	int		start_of_word;
 
-	i = 0;
+	ptr = str;
 	start_of_word = 1;
-	while (str[i])
+	while (*ptr)
 	{
-		if (!is_alnum(str[i]))
+		if (!is_alnum(*ptr))
 			start_of_word = 1;
 		else if (start_of_word)
 		{
-			str[i] = to_upper(str[i]);
+			*ptr = to_upper(*ptr);
 			start_of_word = 0;
 		}
 		else
-			str[i] = to_lower(str[i]);
-		++i;
+			*ptr = to_lower(*ptr);
+		ptr++;
 	}
 	return (str);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+
+	printf("%s\n", ft_strcapitalize(str));
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

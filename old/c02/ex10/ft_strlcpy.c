@@ -9,23 +9,45 @@
 /*   Updated: 2026/07/09 20:35:23 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+ * strlcpy always returns strlen(src) regardless of size
+ * it's undefined behavior to use it on non-terminated src strings
+ */
+
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
-	unsigned int	src_len;
 
-	src_len = 0;
-	while (src[src_len])
-		++src_len;
-	if (size == 0)
-		return (src_len);
 	i = 0;
-	while (i < size - 1 && src[i])
+	if (size > 0)
 	{
-		dest[i] = src[i];
-		++i;
+		while (src[i] && i < size - 1)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	dest[i] = '\0';
-	return (src_len);
+	while (src[i])
+		i++;
+	return (i);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char			src[] = "Hello, 42!";
+	char			dest[50];
+	unsigned int	ret;
+
+	ret = ft_strlcpy(dest, src, sizeof(dest));
+	printf("dest: %s\n", dest);
+	printf("ret : %u\n", ret);
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

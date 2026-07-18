@@ -37,4 +37,14 @@ void	ft_putstr_non_printable(char *str)
 		++i;
 	}
 }
+
+/*
+int	main(void)
+{
+	ft_putstr_non_printable("Coucou\ntu vas bien ?");
+	write(1, "\n", 1);
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

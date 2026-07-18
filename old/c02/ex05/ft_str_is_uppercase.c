@@ -22,4 +22,17 @@ int	ft_str_is_uppercase(char *str)
 	}
 	return (1);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%d\n", ft_str_is_uppercase("HELLO"));
+	printf("%d\n", ft_str_is_uppercase("Hello"));
+	printf("%d\n", ft_str_is_uppercase(""));
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

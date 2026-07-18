@@ -22,4 +22,17 @@ int	ft_str_is_numeric(char *str)
 	}
 	return (1);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%d\n", ft_str_is_numeric("12345"));
+	printf("%d\n", ft_str_is_numeric("123a5"));
+	printf("%d\n", ft_str_is_numeric(""));
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

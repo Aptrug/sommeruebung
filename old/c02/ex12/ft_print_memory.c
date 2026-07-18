@@ -35,12 +35,19 @@ void	print_hex_row(unsigned char *line, unsigned int len)
 
 	hex = "0123456789abcdef";
 	i = 0;
-	while (i < len)
+	while (i < 16)
 	{
-		write(1, &hex[line[i] / 16], 1);
-		write(1, &hex[line[i] % 16], 1);
+		if (i < len)
+		{
+			write(1, &hex[line[i] / 16], 1);
+			write(1, &hex[line[i] % 16], 1);
+		}
+		else
+		{
+			write(1, "  ", 2);
+		}
 		++i;
-		if (i % 2 == 0 && i < len)
+		if (i % 2 == 0)
 			write(1, " ", 1);
 	}
 }
@@ -82,10 +89,21 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		else
 			len = remaining;
 		print_hex_row(row, len);
-		write(1, " ", 1);
 		print_ascii_row(row, len);
 		i += len;
 	}
 	return (addr);
 }
+
+/*
+int	main(void)
+{
+	char	str[] = "Bonjour les aminches\n\tc est fort\ntout ce qu on peut "
+		"faire avec\n\tprint_memory\n\n\tlol.lol\n ";
+
+	ft_print_memory(str, sizeof(str));
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */
