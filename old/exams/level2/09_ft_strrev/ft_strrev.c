@@ -11,29 +11,28 @@
 /* ************************************************************************** */
 int	str_len(char *str)
 {
-	int	i;
+	char	*s;
 
-	i = 0;
-	while (str[i])
-		++i;
-	return (i);
+	s = str;
+	while (*s)
+		++s;
+	return (s - str);
 }
 
 char	*ft_strrev(char *str)
 {
-	int		start;
-	int		end;
+	int		i;
+	int		len;
 	char	tmp;
 
-	start = 0;
-	end = str_len(str) - 1;
-	while (start < end)
+	len = str_len(str);
+	i = 0;
+	while (i < len / 2)
 	{
-		tmp = str[start];
-		str[start] = str[end];
-		str[end] = tmp;
-		++start;
-		--end;
+		tmp = str[i];
+		str[i] = str[len - 1 - i];
+		str[len - 1 - i] = tmp;
+		++i;
 	}
 	return (str);
 }

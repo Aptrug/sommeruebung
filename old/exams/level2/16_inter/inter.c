@@ -11,55 +11,36 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	is_in(char *str, char c)
+void	inter(char *s1, char *s2)
 {
+	int	lookup[256];
 	int	i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (1);
-		++i;
-	}
-	return (0);
-}
-
-void	print_common_chars(char *str1, char *str2, int *seen)
-{
-	int				i;
-	unsigned char	c;
-
+	while (i < 256)
+		lookup[i++] = 0;
 	i = 0;
-	while (str1[i])
+	while (s2[i])
 	{
-		c = (unsigned char)str1[i];
-		if (!seen[c] && is_in(str2, str1[i]))
+		lookup[(unsigned char)s2[i]] = 1;
+		i++;
+	}
+	i = 0;
+	while (s1[i])
+	{
+		if (lookup[(unsigned char)s1[i]] == 1)
 		{
-			seen[c] = 1;
-			write(1, &str1[i], 1);
+			write(1, &s1[i], 1);
+			lookup[(unsigned char)s1[i]] = 0;
 		}
-		++i;
+		i++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	int	seen[256];
-	int	i;
-
-	if (argc != 3)
-	{
-		write(1, "\n", 1);
-		return (0);
-	}
-	i = 0;
-	while (i < 256)
-	{
-		seen[i] = 0;
-		++i;
-	}
-	print_common_chars(argv[1], argv[2], seen);
+	if (argc == 3)
+		inter(argv[1], argv[2]);
 	write(1, "\n", 1);
 	return (0);
 }

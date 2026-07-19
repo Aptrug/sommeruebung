@@ -13,28 +13,22 @@
 
 int	is_in(char c, const char *set)
 {
-	int	i;
-
-	i = 0;
-	while (set[i])
+	while (*set)
 	{
-		if (set[i] == c)
+		if (*set == c)
 			return (1);
-		++i;
+		++set;
 	}
 	return (0);
 }
 
 char	*ft_strpbrk(const char *s1, const char *s2)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i])
+	while (*s1)
 	{
-		if (is_in(s1[i], s2))
-			return ((char *)&s1[i]);
-		++i;
+		if (is_in(*s1, s2))
+			return ((char *)s1);
+		++s1;
 	}
 	return (NULL);
 }
