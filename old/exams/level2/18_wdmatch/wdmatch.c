@@ -11,25 +11,6 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	can_match(char *needle, char *haystack)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (needle[i])
-	{
-		while (haystack[j] && haystack[j] != needle[i])
-			++j;
-		if (!haystack[j])
-			return (0);
-		++i;
-		++j;
-	}
-	return (1);
-}
-
 int	str_len(char *str)
 {
 	int	i;
@@ -40,15 +21,29 @@ int	str_len(char *str)
 	return (i);
 }
 
+int	can_match(char *s1, char *s2)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (s1[i] && s2[j])
+	{
+		if (s1[i] == s2[j])
+			++i;
+		++j;
+	}
+	return (!s1[i]);
+}
+
 int	main(int argc, char **argv)
 {
-	if (argc != 3)
+	if (argc == 3)
 	{
-		write(1, "\n", 1);
-		return (0);
+		if (can_match(argv[1], argv[2]))
+			write(1, argv[1], str_len(argv[1]));
 	}
-	if (can_match(argv[1], argv[2]))
-		write(1, argv[1], str_len(argv[1]));
 	write(1, "\n", 1);
 	return (0);
 }
