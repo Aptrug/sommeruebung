@@ -1,0 +1,19 @@
+Exercise 04: midLS
+
+midLS
+
+Turn-in directory : ex04/
+Files to turn in  : midLS
+Allowed functions : None
+
+* In a midLS file, place the command line that will list all files and
+  directories in your current directory (except for hidden files or any file
+  that starts with a dot - yes, that includes double-dots), separated by a
+  comma and a space, by order of modification date. Make sure the
+  directory's names are followed by a slash character.
+
+What has not been asked for should not be done!
+RTFM!
+Git push regularly.
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)

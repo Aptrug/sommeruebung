@@ -1,0 +1,43 @@
+Exercise 05: GiT commit
+
+GiT commit?
+
+Turn-in directory : ex05/
+Files to turn in  : git_commit.sh
+Allowed functions : None
+
+* Create a shell script that displays the ids of the last 5 commits of your
+  git repository.
+
+    %> bash git_commit.sh | cat -e
+    baa23b54f0adb7bf42623d6d0a6ed4587e11412a$
+    2f52d74b1387fa80eea844969e8dc5483b531ac1$
+    905f53d98656771334f53f59bb984fc29774701f$
+    5ddc8474f4f15b3fcb72d08fcb333e19c3a27078$
+    e94d0b448c03ec633f16d84d63beaef9ae7e7be8$
+    %>
+
+To test your script, we will use our own environment.
+RTFM!
+The first retry delay is short, do not hesitate to trigger an intermediate
+evaluation to measure your progress!
+
+Milestone Achieved, Keep Going!
+You have reached the end of the mandatory exercises to validate this
+project. It's up to you to decide if you want to continue with the
+following optional exercises or switch to your next project. Both paths
+will make you see useful elements one day or another.
+
+To make your choice please consider the following elements:
+* The very first exam is about C programming. So you may have already
+  experienced the very first C project before. Same for the rush at the end
+  of the week (you'll learn soon about the rush).
+* Your excellence in this Piscine will be evaluated on multiple factors. The
+  completion of each project is one of them, but the overall progress
+  through the entire list of projects of the Piscine is another. Choose
+  wisely to optimize your results.
+* It will always be possible to try the same project again in a couple of
+  days/weeks, until the end of the Piscine.
+* Keeping synchronised with your peers ensures a better collaboration.
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)

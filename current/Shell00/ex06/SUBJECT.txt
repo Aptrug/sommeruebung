@@ -1,0 +1,30 @@
+Exercise 06: gitignore
+
+GiT
+
+Turn-in directory : ex06/
+Files to turn in  : git_ignore.sh
+Allowed functions : None
+
+* In this exercise, you will write a short shell script that lists all the
+  existing files ignored by your GiT repository. Example:
+
+    %> bash git_ignore.sh | cat -e
+    .DS_Store$
+    mywork.c~$
+    %>
+
+To test your script, we will use our own environment.
+RTFM!
+Get inspired by others, do not let them do your job.
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)
+
+Implementation note: git_ignore.sh uses
+  git ls-files --others --ignored --exclude-standard
+which is the standard approach for this exercise (confirmed against a broad
+sample of past submissions). Since git only ever tracks files, never bare
+directories, a file inside an ignored directory (e.g. build/) is reported by
+its own path (e.g. build/output.o) rather than as a synthesized "build/"
+line - this is correct git semantics, matching what `git ls-files` and
+`git status` both actually track.

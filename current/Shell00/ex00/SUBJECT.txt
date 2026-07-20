@@ -1,0 +1,18 @@
+Exercise 00: Z
+
+Only the best know how to display Z
+
+Turn-in directory : ex00/
+Files to turn in  : z
+Allowed functions : None
+
+* Create a file called z that returns "Z", followed by a new line, whenever
+  the command cat is used on it.
+
+    ?>cat z
+    Z
+    ?>
+
+Google is your friend.
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)
