@@ -11,42 +11,31 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	print_new_chars(char *str, int *seen)
+int	main(int argc, char **argv)
 {
+	int				seen[256];
 	int				i;
 	unsigned char	c;
 
 	i = 0;
-	while (str[i])
-	{
-		c = (unsigned char)str[i];
-		if (!seen[c])
-		{
-			seen[c] = 1;
-			write(1, &str[i], 1);
-		}
-		++i;
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	int	seen[256];
-	int	i;
-
-	if (argc != 3)
-	{
-		write(1, "\n", 1);
-		return (0);
-	}
-	i = 0;
 	while (i < 256)
+		seen[i++] = 0;
+	argv++;
+	while (argc == 3 && argv[0])
 	{
-		seen[i] = 0;
-		++i;
+		i = 0;
+		while (argv[0][i])
+		{
+			c = argv[0][i];
+			if (!seen[c])
+			{
+				write(1, &c, 1);
+				seen[c] = 1;
+			}
+			i++;
+		}
+		++argv;
 	}
-	print_new_chars(argv[1], seen);
-	print_new_chars(argv[2], seen);
 	write(1, "\n", 1);
 	return (0);
 }

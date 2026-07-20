@@ -11,38 +11,29 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	str_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		++i;
-	return (i);
-}
-
-int	can_match(char *s1, char *s2)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (s1[i] && s2[j])
-	{
-		if (s1[i] == s2[j])
-			++i;
-		++j;
-	}
-	return (!s1[i]);
-}
-
 int	main(int argc, char **argv)
 {
 	if (argc == 3)
 	{
-		if (can_match(argv[1], argv[2]))
-			write(1, argv[1], str_len(argv[1]));
+		char *s1 = argv[1];
+		char *s2 = argv[2];
+
+		/* Advance s1 only when we hit a match. s2 always advances. */
+		while (*s1 && *s2)
+		{
+			if (*s1 == *s2)
+				s1++;
+			s2++;
+		}
+
+		/* If we reached the null terminator of s1, all chars matched. */
+		if (!*s1)
+		{
+			int len = 0;
+			while (argv[1][len])
+				len++;
+			write(1, argv[1], len);
+		}
 	}
 	write(1, "\n", 1);
 	return (0);

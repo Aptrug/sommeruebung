@@ -13,8 +13,9 @@
 
 void	inter(char *s1, char *s2)
 {
-	int	lookup[256];
-	int	i;
+	unsigned char	lookup[256];
+	unsigned char	c;
+	int				i;
 
 	i = 0;
 	while (i < 256)
@@ -22,18 +23,19 @@ void	inter(char *s1, char *s2)
 	i = 0;
 	while (s2[i])
 	{
-		lookup[(unsigned char)s2[i]] = 1;
-		i++;
+		c = s2[i++];
+		lookup[c] = 1;
 	}
 	i = 0;
 	while (s1[i])
 	{
-		if (lookup[(unsigned char)s1[i]] == 1)
+		c = s1[i];
+		if (lookup[c] == 1)
 		{
-			write(1, &s1[i], 1);
-			lookup[(unsigned char)s1[i]] = 0;
+			write(1, &c, 1);
+			lookup[c] = 0;
 		}
-		i++;
+		++i;
 	}
 }
 
