@@ -6,14 +6,15 @@
 /*   By: raaribou <raaribou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 14:46:58 by raaribou          #+#    #+#             */
-/*   Updated: 2026/07/18 14:46:58 by raaribou         ###   ########.fr       */
+/*   Updated: 2026/07/20 13:45:36 by ysabraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 void	ft_putchar(char c);
 
 void	print_line(int x, char left, char right, char mid)
 {
-	int	col;
+	int		col;
+	char	buf[10];
 
 	col = 1;
 	while (col <= x)
