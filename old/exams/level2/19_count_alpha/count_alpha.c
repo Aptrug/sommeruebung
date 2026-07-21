@@ -11,70 +11,65 @@
 /* ************************************************************************** */
 #include <stdio.h>
 
-int	is_alpha(int c)
-{
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
-
-int	to_lower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
-}
-
-void	count_chars(char *str, int *counts, int *order, int *n_order)
+void	count_chars(char *str, int *count)
 {
 	int	i;
 	int	c;
 
 	i = 0;
-	*n_order = 0;
 	while (str[i])
 	{
-		if (is_alpha(str[i]))
-		{
-			c = to_lower(str[i]);
-			if (counts[c - 'a'] == 0)
-				order[(*n_order)++] = c;
-			counts[c - 'a']++;
-		}
-		++i;
+		c = str[i];
+		if (c >= 'A' && c <= 'Z')
+			count[c + 32]++;
+		else if (c >= 'a' && c <= 'z')
+			count[c]++;
+		i++;
 	}
 }
 
-void	print_counts(int *counts, int *order, int n_order)
+void	print_chars(char *str, int *count)
 {
 	int	i;
+	int	c;
+	int	first;
 
 	i = 0;
-	while (i < n_order)
+	first = 1;
+	while (str[i])
 	{
-		printf("%d%c", counts[order[i] - 'a'], order[i]);
-		if (i + 1 < n_order)
-			printf(", ");
-		++i;
+		c = str[i];
+		if (c >= 'A' && c <= 'Z')
+			c += 32;
+		if (c >= 'a' && c <= 'z' && count[c] > 0)
+		{
+			if (!first)
+				printf(", ");
+			printf("%d%c", count[c], c);
+			count[c] = 0;
+			first = 0;
+		}
+		i++;
 	}
-	printf("\n");
 }
 
 int	main(int argc, char **argv)
 {
-	int	counts[26];
-	int	order[26];
-	int	n_order;
+	int	count[256];
 	int	i;
 
-	if (argc != 2)
+	if (argc == 2)
 	{
-		printf("\n");
-		return (0);
+		i = 0;
+		while (i < 256)
+		{
+			count[i] = 0;
+			i++;
+		}
+		count_chars(argv[1], count);
+		print_chars(argv[1], count);
 	}
-	i = 0;
-	while (i < 26)
-		counts[i++] = 0;
-	count_chars(argv[1], counts, order, &n_order);
-	print_counts(counts, order, n_order);
+	printf("\n");
 	return (0);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

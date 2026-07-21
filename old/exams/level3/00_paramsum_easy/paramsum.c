@@ -13,9 +13,17 @@
 
 void	put_nbr(int n)
 {
-	if (n >= 10)
-		put_nbr(n / 10);
-	write(1, &"0123456789"[n % 10], 1);
+	char	buf[10];
+	char	*ptr;
+
+	ptr = buf + 10 - 1;
+	*ptr = (n % 10) + '0';
+	while (n > 9)
+	{
+		n /= 10;
+		*(--ptr) = (n % 10) + '0';
+	}
+	write(1, ptr, buf + 10 - ptr);
 }
 
 int	main(int argc, char **argv)
