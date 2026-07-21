@@ -1,5 +1,3 @@
-
-
 pool/
 ├── Makefile                      (root: traversal + forwarding only)
 ├── common/
