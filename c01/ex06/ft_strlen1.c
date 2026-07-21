@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   ft_putstr.c                                                              */
+/*   ft_strlen.c                                                              */
 /*                                                                            */
 /*   By: ysabraou <ysabraou@student.1337.ma>                                  */
 /*                                                                            */
@@ -9,22 +9,13 @@
 /*   Updated: 2026/07/09 09:47:00 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
-	while (*str)
-	{
-		write(1, str++, 1);
-	}
+	int	i;
+
+	i = 0;
+	while (str[i])
+		++i;
+	return (i);
 }
-
-int	main(void)
-{
-	char	*str;
-
-	str = "hello";
-	ft_putstr(str);
-}
-
 /* vim: set noet ts=4 sw=4 tw=80 : */

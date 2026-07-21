@@ -34,7 +34,7 @@ int	main(void)
 	py = &y;
 
 	ft_swap_ptr(&px, &py);
-	printf("%d\n", x);
-	printf("%d\n", y);
+	printf("x: %d\n", x);
+	printf("y: %d\n", y);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

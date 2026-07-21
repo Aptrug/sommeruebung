@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	ft_putstr(char **str)
 {
-	while (*str)
+	while (**str)
 	{
-		write(1, str++, 1);
+		write(1, (*str)++, 1);
 	}
 }
 
@@ -24,7 +24,6 @@ int	main(void)
 	char	*str;
 
 	str = "hello";
-	ft_putstr(str);
+	ft_putstr(&str);
 }
-
 /* vim: set noet ts=4 sw=4 tw=80 : */
