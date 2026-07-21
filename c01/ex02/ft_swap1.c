@@ -20,8 +20,15 @@ void	ft_swap_ptr(int **a, int **b)
 
 int	main(void)
 {
-	int x = 1, y = 2;
-	int *px = &x, *py = &y;
+	int	x;
+	int	y;
+	int	*px;
+	int	*py;
+
+	x = 1;
+	y = 2;
+	*px = &x;
+	*py = &y;
 
 	ft_swap_ptr(&px, &py);
 }
