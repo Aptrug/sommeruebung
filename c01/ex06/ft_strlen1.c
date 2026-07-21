@@ -9,13 +9,23 @@
 /*   Updated: 2026/07/09 09:47:00 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strlen(char *str)
+#include <stdio.h>
+
+int	ft_strlen(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while ((*str)[i])
 		++i;
 	return (i);
+}
+
+int	main(void)
+{
+	char	*str;
+
+	str = "hello";
+	printf("%d\n", ft_strlen(&str));
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
