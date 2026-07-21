@@ -11,19 +11,37 @@
 /* ************************************************************************** */
 char	*ft_strcat(char *dest, char *src)
 {
-	int	i;
-	int	j;
+	char	*ptr;
 
-	i = 0;
-	while (dest[i] != '\0')
-		++i;
-	j = 0;
-	while (src[j] != '\0')
+	ptr = dest;
+	while (*ptr != '\0')
+		++ptr;
+	while (*src != '\0')
 	{
-		dest[i + j] = src[j];
-		++j;
+		*ptr = *src;
+		++ptr;
+		++src;
 	}
-	dest[i + j] = '\0';
+	*ptr = '\0';
 	return (dest);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	dest[20];
+	char	*src;
+
+	dest[0] = 'h';
+	dest[1] = 'i';
+	dest[2] = ' ';
+	dest[3] = '\0';
+	src = "there";
+	printf("%s\n", ft_strcat(dest, src));
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

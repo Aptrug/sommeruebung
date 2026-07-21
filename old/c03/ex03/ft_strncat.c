@@ -11,19 +11,40 @@
 /* ************************************************************************** */
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int	i;
-	unsigned int	j;
+	char	*d;
 
-	i = 0;
-	while (dest[i] != '\0')
-		++i;
-	j = 0;
-	while (j < nb && src[j] != '\0')
+	d = dest;
+	while (*d != '\0')
+		++d;
+	while (nb > 0 && *src != '\0')
 	{
-		dest[i + j] = src[j];
-		++j;
+		*d = *src;
+		++d;
+		++src;
+		--nb;
 	}
-	dest[i + j] = '\0';
+	*d = '\0';
 	return (dest);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char			dest[20];
+	char			*src;
+	unsigned int	nb;
+
+	dest[0] = 'h';
+	dest[1] = 'i';
+	dest[2] = ' ';
+	dest[3] = '\0';
+	src = "there";
+	nb = 3;
+	printf("%s\n", ft_strncat(dest, src, nb));
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */
