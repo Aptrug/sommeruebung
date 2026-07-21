@@ -11,45 +11,33 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	is_space(char c)
+void	epur_str(char *str)
 {
-	return (c == ' ' || c == '\t');
-}
+	int	flag;
 
-int	print_word(char *str, int i)
-{
-	while (str[i] && !is_space(str[i]))
+	flag = 0;
+	while (*str)
 	{
-		write(1, &str[i], 1);
-		++i;
+		if (*str == ' ' || *str == '\t')
+			str++;
+		else
+		{
+			if (flag)
+				write(1, " ", 1);
+			flag = 1;
+			while (*str && *str != ' ' && *str != '\t')
+			{
+				write(1, str, 1);
+				str++;
+			}
+		}
 	}
-	return (i);
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	first_word;
-
-	if (argc != 2)
-	{
-		write(1, "\n", 1);
-		return (0);
-	}
-	i = 0;
-	first_word = 1;
-	while (argv[1][i])
-	{
-		if (is_space(argv[1][i]))
-			++i;
-		else
-		{
-			if (!first_word)
-				write(1, " ", 1);
-			first_word = 0;
-			i = print_word(argv[1], i);
-		}
-	}
+	if (argc == 2)
+		epur_str(argv[1]);
 	write(1, "\n", 1);
 	return (0);
 }

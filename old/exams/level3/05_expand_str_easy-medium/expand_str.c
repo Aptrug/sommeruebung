@@ -11,46 +11,38 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	is_space(char c)
+void	expand_str(char *str)
 {
-	return (c == ' ' || c == '\t');
-}
+	int	i;
+	int	space_flag;
 
-int	print_word(char *str, int i)
-{
-	while (str[i] && !is_space(str[i]))
+	i = 0;
+	space_flag = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	while (str[i])
 	{
-		write(1, &str[i], 1);
-		++i;
+		if (str[i] == ' ' || str[i] == '\t')
+		{
+			space_flag = 1;
+		}
+		else
+		{
+			if (space_flag)
+				write(1, "   ", 3);
+			space_flag = 0;
+			write(1, &str[i], 1);
+		}
+		i++;
 	}
-	return (i);
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	first_word;
-
-	if (argc != 2)
-	{
-		write(1, "\n", 1);
-		return (0);
-	}
-	i = 0;
-	first_word = 1;
-	while (argv[1][i])
-	{
-		if (is_space(argv[1][i]))
-			++i;
-		else
-		{
-			if (!first_word)
-				write(1, "   ", 3);
-			first_word = 0;
-			i = print_word(argv[1], i);
-		}
-	}
+	if (argc == 2)
+		expand_str(argv[1]);
 	write(1, "\n", 1);
 	return (0);
 }
+
 /* vim: set noet ts=4 sw=4 tw=80 : */

@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   tab_mult.c                                                               */
-/*                                                                            */
-/*   By: ysabraou <ysabraou@student.1337.ma>                                  */
-/*                                                                            */
-/*   Created: 2026/07/11 14:33:19 by ysabraou                                 */
-/*   Updated: 2026/07/11 14:33:19 by ysabraou                                 */
+/*                                                        :::      ::::::::   */
+/*   tab_mult.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysabraou <ysabraou@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/21 19:16:38 by ysabraou          #+#    #+#             */
+/*   Updated: 2026/07/21 19:16:38 by ysabraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
 void	put_nbr(int n)
 {
-	if (n >= 10)
-		put_nbr(n / 10);
-	write(1, &"0123456789"[n % 10], 1);
+	char	buf[10];
+	char	*ptr;
+
+	ptr = buf + 10 - 1;
+	*ptr = (n % 10) + '0';
+	while (n > 9)
+	{
+		n /= 10;
+		*(--ptr) = (n % 10) + '0';
+	}
+	write(1, ptr, buf + 10 - ptr);
 }
 
 int	str_to_nbr(char *str)
 {
-	int	i;
 	int	n;
 
-	i = 0;
 	n = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		n = n * 10 + (str[i] - '0');
-		++i;
+		n = n * 10 + (*str - '0');
+		++str;
 	}
 	return (n);
 }

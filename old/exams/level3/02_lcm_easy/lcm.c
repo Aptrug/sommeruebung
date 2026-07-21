@@ -22,10 +22,11 @@ unsigned int	hcf(unsigned int a, unsigned int b)
 	return (a);
 }
 
+/* Divide first to prevent overflow, then multiply */
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
 	if (a == 0 || b == 0)
 		return (0);
-	return ((a * b) / hcf(a, b));
+	return ((a / hcf(a, b)) * b);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
