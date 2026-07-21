@@ -9,13 +9,16 @@
 /*   Updated: 2026/07/09 09:47:00 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+
 void	ft_swap_ptr(int **a, int **b)
 {
-	int	*tmp;
+	int	tmp;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	tmp = **a;
+	**a = **b;
+	**b = tmp;
 }
 
 int	main(void)
@@ -27,9 +30,11 @@ int	main(void)
 
 	x = 1;
 	y = 2;
-	*px = &x;
-	*py = &y;
+	px = &x;
+	py = &y;
 
 	ft_swap_ptr(&px, &py);
+	printf("%d\n", x);
+	printf("%d\n", y);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */
