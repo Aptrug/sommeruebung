@@ -1,6 +1,7 @@
 I'm trying to solve 1337/42 exercises (preparing for pool) of C0X
-right now, I want c03 (FYI I'm fully satisified with previous ones, C00, C01, etc)
-I want you to create c03 directory for me, make it consistent with c02 directory, as if written by same person
+right now, I want C04 (FYI I'm fully satisified with previous ones, C00, C01, etc)
+I want you to create C04 directory for me, make it consistent with c04 directory, as if written by same person
 
-give me c03 directory as a tar file once you finish it
+everything you need is inside files.tar I uploaded to you
+give me C04 directory as a tar file once you finish it along with the python script (for testing)
 PS: Make sure all tests pass and leave nothing up to guess/luck/faith

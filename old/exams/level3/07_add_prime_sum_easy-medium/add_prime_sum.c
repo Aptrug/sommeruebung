@@ -13,38 +13,28 @@
 
 void	put_nbr(int n)
 {
-	if (n >= 10)
-		put_nbr(n / 10);
-	write(1, &"0123456789"[n % 10], 1);
-}
+	char	buf[10];
+	char	*ptr;
 
-int	is_valid_nbr(char *str)
-{
-	int	i;
-
-	if (!str[0])
-		return (0);
-	i = 0;
-	while (str[i])
+	ptr = buf + 10 - 1;
+	*ptr = (n % 10) + '0';
+	while (n > 9)
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		++i;
+		n /= 10;
+		*(--ptr) = (n % 10) + '0';
 	}
-	return (1);
+	write(1, ptr, buf + 10 - ptr);
 }
 
 int	str_to_nbr(char *str)
 {
-	int	i;
 	int	n;
 
-	i = 0;
 	n = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		n = n * 10 + (str[i] - '0');
-		++i;
+		n = n * 10 + (*str - '0');
+		++str;
 	}
 	return (n);
 }
@@ -53,10 +43,10 @@ int	is_prime(int n)
 {
 	int	i;
 
-	if (n < 2)
+	if (n <= 1)
 		return (0);
 	i = 2;
-	while (i * i <= n)
+	while (i <= n / i)
 	{
 		if (n % i == 0)
 			return (0);
@@ -71,20 +61,20 @@ int	main(int argc, char **argv)
 	int	sum;
 	int	i;
 
-	if (argc != 2 || !is_valid_nbr(argv[1]))
-	{
-		put_nbr(0);
-		write(1, "\n", 1);
-		return (0);
-	}
-	limit = str_to_nbr(argv[1]);
 	sum = 0;
-	i = 2;
-	while (i <= limit)
+	if (argc == 2)
 	{
-		if (is_prime(i))
-			sum = sum + i;
-		++i;
+		limit = str_to_nbr(argv[1]);
+		if (limit != 0)
+		{
+			i = 2;
+			while (i <= limit)
+			{
+				if (is_prime(i))
+					sum = sum + i;
+				++i;
+			}
+		}
 	}
 	put_nbr(sum);
 	write(1, "\n", 1);
