@@ -1,0 +1,13 @@
+Exercice 00: ft_strlen
+
+Turn-in directory : ex00/
+Files to turn in  : ft_strlen.c
+Allowed functions : None
+
+* Create a function that counts and returns the number of characters in a
+  string.
+* Here's how it should be prototyped :
+
+    int ft_strlen(char *str);
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)

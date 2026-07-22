@@ -1,0 +1,13 @@
+Exercice 01: ft_putstr
+
+Turn-in directory : ex01/
+Files to turn in  : ft_putstr.c
+Allowed functions : write
+
+* Create a function that prints a string of characters to the standard
+  output.
+* Here's how it should be prototyped :
+
+    void ft_putstr(char *str);
+
+(See ../SUBJECT.txt for the module-wide instructions and submission rules.)
