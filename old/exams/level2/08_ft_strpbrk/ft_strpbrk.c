@@ -11,22 +11,19 @@
 /* ************************************************************************** */
 #include <stddef.h>
 
-int	is_in(char c, const char *set)
-{
-	while (*set)
-	{
-		if (*set == c)
-			return (1);
-		++set;
-	}
-	return (0);
-}
-
 char	*ft_strpbrk(const char *s1, const char *s2)
 {
+	unsigned char	set[256];
+	size_t			i;
+
+	i = 0;
+	while (i < 256)
+		set[i++] = 0;
+	while (*s2)
+		set[(unsigned char)*s2++] = 1;
 	while (*s1)
 	{
-		if (is_in(*s1, s2))
+		if (set[(unsigned char)*s1])
 			return ((char *)s1);
 		++s1;
 	}

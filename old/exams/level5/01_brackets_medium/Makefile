@@ -33,7 +33,7 @@ test:
 		exit 1
 	fi
 	if command -v norminette >/dev/null 2>&1; then
-		norminette -R CheckForbiddenSourceHeader $(SRC) brackets.h || exit 1
+		norminette -R CheckForbiddenSourceHeader $(SRC) || exit 1
 	fi
 	echo "PASS: brackets"
 

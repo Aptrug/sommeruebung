@@ -1,46 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   ft_atoi_base.c                                                           */
-/*                                                                            */
-/*   By: ysabraou <ysabraou@student.1337.ma>                                  */
-/*                                                                            */
-/*   Created: 2026/07/11 14:29:55 by ysabraou                                 */
-/*   Updated: 2026/07/11 14:29:55 by ysabraou                                 */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ysabraou <ysabraou@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/23 08:36:33 by ysabraou          #+#    #+#             */
+/*   Updated: 2026/07/23 08:36:33 by ysabraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	char_value(char c)
+int	get_digit(char c)
 {
-	if (c >= '0' && c <= '9')
-		return (c - '0');
-	if (c >= 'a' && c <= 'f')
-		return (c - 'a' + 10);
-	if (c >= 'A' && c <= 'F')
-		return (c - 'A' + 10);
+	char *lower_map = "0123456789abcdef";
+	char *upper_map = "0123456789ABCDEF";
+	int	i;
+
+	i = 0;
+	while (i < 16)
+	{
+		if (c == lower_map[i] || c == upper_map[i])
+			return (i);
+		++i;
+	}
 	return (-1);
 }
 
 int	ft_atoi_base(const char *str, int str_base)
 {
-	int	i;
-	int	sign;
 	int	result;
+	int	sign;
 	int	digit;
 
-	i = 0;
+	if (!str || str_base < 2 || str_base > 16)
+		return (0);
 	sign = 1;
-	if (str[i] == '-')
+	if (*str == '-')
 	{
 		sign = -1;
-		++i;
+		++str;
 	}
 	result = 0;
-	digit = char_value(str[i]);
-	while (digit != -1 && digit < str_base)
+	while (*str)
 	{
+		digit = get_digit(*str);
+		if (digit == -1 || digit >= str_base)
+			break ;
 		result = result * str_base + digit;
-		++i;
-		digit = char_value(str[i]);
+		++str;
 	}
 	return (result * sign);
 }

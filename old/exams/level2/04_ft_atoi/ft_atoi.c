@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 int	is_space(char c)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
 }
 
 int	ft_atoi(const char *str)
@@ -32,11 +31,9 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 - (*str - '0');
+		result = result * 10 + (*str - '0');
 		++str;
 	}
-	if (sign == 1)
-		return (-result);
-	return (result);
+	return (result * sign);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

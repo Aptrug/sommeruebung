@@ -13,19 +13,14 @@
 
 int	is_hidden(char *s1, char *s2)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (s1[i])
+	while (*s1)
 	{
-		while (s2[j] && s2[j] != s1[i])
-			++j;
-		if (!s2[j])
+		while (*s2 && *s2 != *s1)
+			++s2;
+		if (!*s2)
 			return (0);
-		++i;
-		++j;
+		++s1;
+		++s2;
 	}
 	return (1);
 }

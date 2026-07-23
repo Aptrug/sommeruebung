@@ -11,26 +11,18 @@
 /* ************************************************************************** */
 #include <stddef.h>
 
-int	is_in(char c, const char *set)
-{
-	int	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (set[i] == c)
-			return (1);
-		++i;
-	}
-	return (0);
-}
-
 size_t	ft_strcspn(const char *s, const char *reject)
 {
-	size_t	i;
+	unsigned char	set[256];
+	size_t			i;
 
 	i = 0;
-	while (s[i] && !is_in(s[i], reject))
+	while (i < 256)
+		set[i++] = 0;
+	while (*reject)
+		set[(unsigned char)*reject++] = 1;
+	i = 0;
+	while (s[i] && !set[(unsigned char)s[i]])
 		++i;
 	return (i);
 }

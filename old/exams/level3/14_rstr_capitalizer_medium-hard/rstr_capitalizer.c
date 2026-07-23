@@ -11,55 +11,43 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
+int	is_alpha(char c)
+{
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
 int	is_space(char c)
 {
 	return (c == ' ' || c == '\t');
 }
 
-void	write_case(char c, int upper)
+char	change_case(char c, int up)
 {
-	if (upper && c >= 'a' && c <= 'z')
-		c = c - 'a' + 'A';
-	else if (!upper && c >= 'A' && c <= 'Z')
-		c = c - 'A' + 'a';
-	write(1, &c, 1);
+	if (up && c >= 'a' && c <= 'z')
+		return (c - 'a' + 'A');
+	if (!up && c >= 'A' && c <= 'Z')
+		return (c - 'A' + 'a');
+	return (c);
 }
 
-int	word_last_letter(char *word, int start)
+void	rstr_capitalizer(char *str)
 {
-	int	i;
-	int	last;
+	char	*ptr;
+	char	c;
 
-	i = start;
-	last = -1;
-	while (word[i] && !is_space(word[i]))
+	while (*str)
 	{
-		if ((word[i] >= 'a' && word[i] <= 'z')
-			|| (word[i] >= 'A' && word[i] <= 'Z'))
-			last = i;
-		++i;
-	}
-	return (last);
-}
-
-void	rcapitalize(char *word)
-{
-	int	i;
-	int	last;
-
-	i = 0;
-	last = -1;
-	while (word[i])
-	{
-		if (is_space(word[i]))
-			write(1, &word[i], 1);
-		else
+		c = change_case(*str, 0);
+		if (c >= 'a' && c <= 'z')
 		{
-			if (i > last)
-				last = word_last_letter(word, i);
-			write_case(word[i], i == last);
+			ptr = str + 1;
+			while (*ptr && !is_space(*ptr) && !is_alpha(*ptr))
+				++ptr;
+			if (is_space(*ptr) || *ptr == '\0')
+				c = change_case(c, 1);
 		}
-		++i;
+		write(1, &c, 1);
+		++str;
 	}
 }
 
@@ -67,18 +55,18 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
-	if (argc == 1)
+	if (argc > 1)
 	{
-		write(1, "\n", 1);
-		return (0);
+		i = 1;
+		while (i < argc)
+		{
+			rstr_capitalizer(argv[i]);
+			write(1, "\n", 1);
+			++i;
+		}
 	}
-	i = 1;
-	while (i < argc)
-	{
-		rcapitalize(argv[i]);
+	else
 		write(1, "\n", 1);
-		++i;
-	}
 	return (0);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

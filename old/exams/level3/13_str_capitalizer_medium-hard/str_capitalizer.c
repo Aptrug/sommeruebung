@@ -30,31 +30,29 @@ char	to_lower(char c)
 	return (c);
 }
 
-void	capitalize(char *word)
+void	capitalize(char *str)
 {
-	int		i;
-	int		start_of_word;
+	int		start_of_str;
 	char	c;
 
-	i = 0;
-	start_of_word = 1;
-	while (word[i])
+	start_of_str = 1;
+	while (*str)
 	{
-		if (is_space(word[i]))
+		if (is_space(*str))
 		{
-			write(1, &word[i], 1);
-			start_of_word = 1;
+			write(1, str, 1);
+			start_of_str = 1;
 		}
 		else
 		{
-			if (start_of_word)
-				c = to_upper(word[i]);
+			if (start_of_str)
+				c = to_upper(*str);
 			else
-				c = to_lower(word[i]);
+				c = to_lower(*str);
 			write(1, &c, 1);
-			start_of_word = 0;
+			start_of_str = 0;
 		}
-		++i;
+		++str;
 	}
 }
 
@@ -62,18 +60,18 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
-	if (argc == 1)
+	if (argc > 1)
 	{
-		write(1, "\n", 1);
-		return (0);
+		i = 1;
+		while (i < argc)
+		{
+			capitalize(argv[i]);
+			write(1, "\n", 1);
+			++i;
+		}
 	}
-	i = 1;
-	while (i < argc)
-	{
-		capitalize(argv[i]);
+	else
 		write(1, "\n", 1);
-		++i;
-	}
 	return (0);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

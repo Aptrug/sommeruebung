@@ -28,7 +28,7 @@ int	*ft_rrange(int start, int end)
 		size = start - end + 1;
 		step = 1;
 	}
-	range = (int *)malloc(sizeof(int) * size);
+	range = malloc(sizeof(int) * size);
 	if (!range)
 		return (NULL);
 	i = 0;

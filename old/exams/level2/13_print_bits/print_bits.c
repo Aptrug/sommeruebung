@@ -14,14 +14,14 @@
 void	print_bits(unsigned char octet)
 {
 	int		i;
-	char	bit;
+	char	buf[8];
 
 	i = 7;
 	while (i >= 0)
 	{
-		bit = '0' + ((octet >> i) & 1);
-		write(1, &bit, 1);
+		buf[7 - i] = '0' + ((octet >> i) & 1);
 		--i;
 	}
+	write(1, buf, 8);
 }
 /* vim: set noet ts=4 sw=4 tw=80 : */

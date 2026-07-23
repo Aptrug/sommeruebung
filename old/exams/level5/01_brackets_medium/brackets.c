@@ -10,67 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-#include "brackets.h"
 
-#define STACK_MAX 4096
-
-int	is_opening(char c)
+int	match(char open, char close)
 {
-	return (c == '(' || c == '[' || c == '{');
+	return ((open == '(' && close == ')') || (open == '[' && close == ']')
+		|| (open == '{' && close == '}'));
 }
 
-char	matching_opening(char c)
+int	check_if_brackets_are_valid(char *str)
 {
-	if (c == ')')
-		return ('(');
-	if (c == ']')
-		return ('[');
-	if (c == '}')
-		return ('{');
-	return (0);
-}
-
-int	is_balanced(char *str)
-{
-	char	stack[STACK_MAX];
-	int		top;
 	int		i;
-	char	close;
+	int		open_count;
+	char	stack[4096];
 
-	top = 0;
 	i = 0;
+	open_count = 0;
 	while (str[i])
 	{
-		if (is_opening(str[i]) && top < STACK_MAX)
-			stack[top++] = str[i];
-		else
+		if (str[i] == '(' || str[i] == '[' || str[i] == '{')
+			stack[open_count++] = str[i];
+		else if (str[i] == ')' || str[i] == ']' || str[i] == '}')
 		{
-			close = matching_opening(str[i]);
-			if (close)
-			{
-				if (top == 0 || stack[top - 1] != close)
-					return (0);
-				--top;
-			}
+			if (open_count == 0 || !match(stack[open_count - 1], str[i]))
+				return (0);
+			--open_count;
 		}
 		++i;
 	}
-	return (top == 0);
+	return (open_count == 0);
 }
 
 int	main(int argc, char **argv)
 {
 	int	i;
 
+	i = 1;
 	if (argc == 1)
 	{
 		write(1, "\n", 1);
 		return (0);
 	}
-	i = 1;
 	while (i < argc)
 	{
-		if (is_balanced(argv[i]))
+		if (check_if_brackets_are_valid(argv[i]))
 			write(1, "OK\n", 3);
 		else
 			write(1, "Error\n", 6);

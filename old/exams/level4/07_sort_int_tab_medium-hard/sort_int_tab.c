@@ -9,11 +9,19 @@
 /*   Updated: 2026/07/11 14:43:35 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
+void	ft_swap(int *a, int *b)
+{
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
 void	sort_int_tab(int *tab, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	j;
-	int				tmp;
 
 	i = 1;
 	while (i < size)
@@ -21,9 +29,7 @@ void	sort_int_tab(int *tab, unsigned int size)
 		j = i;
 		while (j > 0 && tab[j - 1] > tab[j])
 		{
-			tmp = tab[j - 1];
-			tab[j - 1] = tab[j];
-			tab[j] = tmp;
+			ft_swap(&tab[j], &tab[j - 1]);
 			--j;
 		}
 		++i;

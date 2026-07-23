@@ -11,44 +11,46 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_nbrlen(long int nbr)
-{
-	int	len;
-
-	len = 1;
-	if (nbr < 0)
-		++len;
-	while (nbr <= -10 || nbr >= 10)
-	{
-		nbr = nbr / 10;
-		++len;
-	}
-	return (len);
-}
+#define BUFSZ 11
 
 char	*ft_itoa(int nbr)
 {
-	char		*str;
-	int			len;
-	long int	n;
+	char	buf[BUFSZ];
+	char	*ptr;
+	char	*res;
+	int		len;
+	long	n;
 
 	n = nbr;
-	len = ft_nbrlen(n);
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
 	if (n < 0)
-	{
-		str[0] = '-';
 		n = -n;
-	}
-	while (len > 0 && str[len - 1] != '-')
+	ptr = buf + BUFSZ;
+	while (ptr == buf + BUFSZ || n > 0)
 	{
-		--len;
-		str[len] = (n % 10) + '0';
-		n = n / 10;
+		*(--ptr) = (n % 10) + '0';
+		n /= 10;
 	}
-	return (str);
+	if (nbr < 0)
+		*(--ptr) = '-';
+	len = buf + BUFSZ - ptr;
+	res = malloc(len + 1);
+	if (!res)
+		return (NULL);
+	res[len] = '\0';
+	while (len-- > 0)
+		res[len] = ptr[len];
+	return (res);
 }
+
+/*
+int	main(void)
+{
+	char	*str;
+	str = ft_itoa(42);
+	free(str);
+
+	return (0);
+}
+*/
+
 /* vim: set noet ts=4 sw=4 tw=80 : */
