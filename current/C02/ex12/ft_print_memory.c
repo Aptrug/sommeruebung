@@ -47,7 +47,7 @@ void	put_hex(char *out, unsigned char *ptr, unsigned int len)
 			*out++ = ' ';
 			*out++ = ' ';
 		}
-		if (i % 2 == 1)
+		if (i % 2 != 0)
 			*out++ = ' ';
 		++i;
 	}
@@ -93,6 +93,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	return (addr);
 }
 
+/*
 int	main(void)
 {
 	char str[] = "Bonjour les aminches\n\tc est fort\ntout ce qu on peut "
@@ -101,5 +102,6 @@ int	main(void)
 	ft_print_memory(str, sizeof(str));
 	return (0);
 }
+*/
 
 /* vim: set noet ts=4 sw=4 tw=80 : */
