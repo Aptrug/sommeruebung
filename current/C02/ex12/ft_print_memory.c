@@ -11,24 +11,24 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	print_addr(unsigned long addr)
+void	put_addr(char *out, unsigned long addr)
 {
 	char	*hex;
-	char	buf[16];
 	int		i;
 
 	hex = "0123456789abcdef";
-	i = 16;
-	while (i > 0)
+	i = 15;
+	while (i >= 0)
 	{
+		out[i] = hex[addr % 16];
+		addr /= 16;
 		--i;
-		buf[i] = hex[addr % 16];
-		addr = addr / 16;
 	}
-	write(1, buf, 16);
+	out[16] = ':';
+	out[17] = ' ';
 }
 
-void	print_hex_row(unsigned char *line, unsigned int len)
+void	put_hex(char *out, unsigned char *ptr, unsigned int len)
 {
 	char			*hex;
 	unsigned int	i;
@@ -39,71 +39,67 @@ void	print_hex_row(unsigned char *line, unsigned int len)
 	{
 		if (i < len)
 		{
-			write(1, &hex[line[i] / 16], 1);
-			write(1, &hex[line[i] % 16], 1);
+			*out++ = hex[ptr[i] / 16];
+			*out++ = hex[ptr[i] % 16];
 		}
 		else
 		{
-			write(1, "  ", 2);
+			*out++ = ' ';
+			*out++ = ' ';
 		}
+		if (i % 2 == 1)
+			*out++ = ' ';
 		++i;
-		if (i % 2 == 0)
-			write(1, " ", 1);
 	}
 }
 
-void	print_ascii_row(unsigned char *line, unsigned int len)
+void	put_ascii(char *out, unsigned char *ptr, unsigned int len)
 {
 	unsigned int	i;
 
 	i = 0;
 	while (i < len)
 	{
-		if (line[i] >= 32 && line[i] <= 126)
-			write(1, &line[i], 1);
+		if (ptr[i] >= ' ' && ptr[i] <= '~')
+			out[i] = ptr[i];
 		else
-			write(1, ".", 1);
-		++i;
+			out[i] = '.';
+		i++;
 	}
-	write(1, "\n", 1);
+	out[i] = '\n';
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned char	*ptr;
-	unsigned char	*row;
 	unsigned int	i;
 	unsigned int	len;
-	unsigned int	remaining;
+	char			out[75];
 
 	ptr = (unsigned char *)addr;
 	i = 0;
 	while (i < size)
 	{
-		row = ptr + i;
-		print_addr((unsigned long)row);
-		write(1, ": ", 2);
-		remaining = size - i;
-		if (remaining > 16)
-			len = 16;
+		if (size - i < 16)
+			len = size - i;
 		else
-			len = remaining;
-		print_hex_row(row, len);
-		print_ascii_row(row, len);
-		i += len;
+			len = 16;
+		put_addr(out, (unsigned long)(ptr + i));
+		put_hex(out + 18, ptr + i, len);
+		put_ascii(out + 58, ptr + i, len);
+		write(1, out, 58 + len + 1);
+		i += 16;
 	}
 	return (addr);
 }
 
-/*
 int	main(void)
 {
-	char	str[] = "Bonjour les aminches\n\tc est fort\ntout ce qu on peut "
-		"faire avec\n\tprint_memory\n\n\tlol.lol\n ";
+	char str[] = "Bonjour les aminches\n\tc est fort\ntout ce qu on peut "
+				 "faire avec\n\tprint_memory\n\n\tlol.lol\n ";
 
 	ft_print_memory(str, sizeof(str));
 	return (0);
 }
-*/
 
 /* vim: set noet ts=4 sw=4 tw=80 : */
