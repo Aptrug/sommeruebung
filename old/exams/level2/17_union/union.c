@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < 256)
 		seen[i++] = 0;
-	argv++;
+	++argv;
 	while (argc == 3 && argv[0])
 	{
 		i = 0;
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 				write(1, &c, 1);
 				seen[c] = 1;
 			}
-			i++;
+			++i;
 		}
 		++argv;
 	}

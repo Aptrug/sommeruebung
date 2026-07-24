@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 unsigned int	hcf(unsigned int a, unsigned int b)
 {
-	unsigned int	tmp;
+	unsigned int	remainder;
 
 	while (b != 0)
 	{
-		tmp = b;
-		b = a % b;
-		a = tmp;
+		remainder = a % b;
+		a = b;
+		b = remainder;
 	}
 	return (a);
 }

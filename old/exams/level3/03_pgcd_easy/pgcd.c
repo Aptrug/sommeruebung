@@ -9,18 +9,18 @@
 /*   Updated: 2026/07/11 14:32:11 by ysabraou                                 */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int	pgcd(int a, int b)
 {
-	int	tmp;
+	int	remainder;
 
 	while (b != 0)
 	{
-		tmp = b;
-		b = a % b;
-		a = tmp;
+		remainder = a % b;
+		a = b;
+		b = remainder;
 	}
 	return (a);
 }
