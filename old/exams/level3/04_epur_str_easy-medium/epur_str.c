@@ -13,24 +13,25 @@
 
 void	epur_str(char *str)
 {
-	int	flag;
+	int	i;
+	int	pending_space;
 
-	flag = 0;
-	while (*str)
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		++i;
+	pending_space = 0;
+	while (str[i])
 	{
-		if (*str == ' ' || *str == '\t')
-			str++;
+		if (str[i] == ' ' || str[i] == '\t')
+			pending_space = 1;
 		else
 		{
-			if (flag)
+			if (pending_space)
 				write(1, " ", 1);
-			flag = 1;
-			while (*str && *str != ' ' && *str != '\t')
-			{
-				write(1, str, 1);
-				str++;
-			}
+			pending_space = 0;
+			write(1, &str[i], 1);
 		}
+		++i;
 	}
 }
 

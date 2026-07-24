@@ -17,15 +17,13 @@ void	expand_str(char *str)
 	int	space_flag;
 
 	i = 0;
-	space_flag = 0;
 	while (str[i] == ' ' || str[i] == '\t')
-		i++;
+		++i;
+	space_flag = 0;
 	while (str[i])
 	{
 		if (str[i] == ' ' || str[i] == '\t')
-		{
 			space_flag = 1;
-		}
 		else
 		{
 			if (space_flag)
@@ -33,7 +31,7 @@ void	expand_str(char *str)
 			space_flag = 0;
 			write(1, &str[i], 1);
 		}
-		i++;
+		++i;
 	}
 }
 

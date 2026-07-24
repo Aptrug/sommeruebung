@@ -30,23 +30,16 @@ void	print_hex(unsigned int n)
 	char	buffer[16];
 	int		i;
 
-	i = 0;
 	hex_base = "0123456789abcdef";
-	if (n == 0)
-	{
-		write(1, "0", 1);
-		return ;
-	}
-	while (n > 0)
+	i = 0;
+	while (n > 0 || i == 0)
 	{
 		buffer[i] = hex_base[n % 16];
 		n = n / 16;
 		i++;
 	}
 	while (i-- > 0)
-	{
 		write(1, &buffer[i], 1);
-	}
 }
 
 int	main(int argc, char **argv)

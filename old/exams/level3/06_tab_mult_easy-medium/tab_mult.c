@@ -14,16 +14,15 @@
 void	put_nbr(int n)
 {
 	char	buf[10];
-	char	*ptr;
+	int		i;
 
-	ptr = buf + 10 - 1;
-	*ptr = (n % 10) + '0';
-	while (n > 9)
+	i = 10;
+	while (n > 0 || i == 10)
 	{
+		buf[--i] = (n % 10) + '0';
 		n /= 10;
-		*(--ptr) = (n % 10) + '0';
 	}
-	write(1, ptr, buf + 10 - ptr);
+	write(1, buf + i, 10 - i);
 }
 
 int	str_to_nbr(char *str)
